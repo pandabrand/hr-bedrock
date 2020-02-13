@@ -1,0 +1,113 @@
+$footer-background_color: $white;
+$footer_color: $black;
+
+.footer-container {
+  .cc-row {
+    background-color: transparent;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.footer {
+  background: $footer-background_color;
+  color: $footer_color;
+  margin: 46px 0;
+  height: 288px;
+
+  @media (max-width: 480px) {
+    min-height: 288px;
+    height: auto;
+  }
+
+  padding: 0 15px;
+
+  .footer-menu {
+    padding-top: 7.5%;
+
+    .footer-details {
+      font-size: 12px;
+    }
+
+    .footer-nav-menu {
+      font-size: 16px;
+    }
+
+    .menu-footer-two-container__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .nav-link {
+        padding: 0;
+      }
+    }
+
+    .navigation__list__footer {
+      @extend .medium;
+
+      flex-direction: row;
+      justify-content: center;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      .navigation__item__footer {
+        // display: block;
+        padding: 0 1rem;
+        text-transform: uppercase;
+
+        .nav-link {
+          color: $color__text-main;
+          text-align: center;
+
+          &:link,
+          &:visited {
+            color: $color__text-main;
+          }
+
+          &:hover,
+          &:active {
+            color: $color__link--active;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer-menu-about {
+  padding-top: 4.5%;
+
+  .menu-footer-about-container {
+    .footer-cta {
+      @extend .medium;
+
+      font-size: 1.25rem;
+      letter-spacing: 2.25px;
+      text-transform: uppercase;
+    }
+
+    .footer-nav-menu-about {
+      margin: 0 auto;
+      max-height: 150px;
+
+      @media (max-width: 480px) {
+        width: 100%;
+        max-height: none;
+      }
+
+      @extend .flex-column;
+      @extend .justify-content-around;
+      @extend .flex-wrap;
+
+      &.navigation__list__footer {
+        font-weight: normal;
+        letter-spacing: 2.25px;
+        line-height: 2rem;
+      }
+    }
+  }
+}

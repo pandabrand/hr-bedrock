@@ -1,0 +1,24 @@
+.artist-column {
+  padding: 0;
+
+  .title {
+    margin: 1em 0;
+    font-size: $font-size-lg;
+  }
+
+  .locations {
+    ul {
+      padding: 0;
+      margin: 25px 0 25px 15px;
+    }
+  }
+
+  a {
+    color: $white;
+    font-weight: 900;
+
+    &:hover {
+      color: transparentize($color: #fff, $amount: 0.4);
+    }
+  }
+}

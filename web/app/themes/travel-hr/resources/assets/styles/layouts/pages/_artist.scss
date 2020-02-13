@@ -1,0 +1,37 @@
+.tax-location_types,
+.single {
+  .body-wrap {
+    background: $black;
+
+    .wrap.container {
+      color: $white;
+
+      article {
+        header {
+          padding: 1em 0;
+
+          .entry-title {
+            text-align: center;
+            text-transform: uppercase;
+          }
+        }
+
+        .entry-content {
+          padding: 1.5em;
+
+          a {
+            color: $white;
+
+            &:hover {
+              color: transparentize($color: #fff, $amount: 0.5);
+            }
+          }
+
+          iframe {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

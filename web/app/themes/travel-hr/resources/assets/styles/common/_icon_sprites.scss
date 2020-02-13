@@ -1,0 +1,400 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+
+$art-black-name: "art-black";
+$art-black-x: 30px;
+$art-black-y: 0;
+$art-black-offset-x: -30px;
+$art-black-offset-y: 0;
+$art-black-width: 20px;
+$art-black-height: 20px;
+$art-black-total-width: 110px;
+$art-black-total-height: 80px;
+$art-black-image: "../images/icon-sprites.png";
+$art-black: (30px, 0, -30px, 0, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "art-black", );
+$art-white-name: "art-white";
+$art-white-x: 0;
+$art-white-y: 60px;
+$art-white-offset-x: 0;
+$art-white-offset-y: -60px;
+$art-white-width: 20px;
+$art-white-height: 20px;
+$art-white-total-width: 110px;
+$art-white-total-height: 80px;
+$art-white-image: "../images/icon-sprites.png";
+$art-white: (0, 60px, 0, -60px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "art-white", );
+$food-black-name: "food-black";
+$food-black-x: 0;
+$food-black-y: 30px;
+$food-black-offset-x: 0;
+$food-black-offset-y: -30px;
+$food-black-width: 20px;
+$food-black-height: 20px;
+$food-black-total-width: 110px;
+$food-black-total-height: 80px;
+$food-black-image: "../images/icon-sprites.png";
+$food-black: (0, 30px, 0, -30px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "food-black", );
+$food-white-name: "food-white";
+$food-white-x: 30px;
+$food-white-y: 30px;
+$food-white-offset-x: -30px;
+$food-white-offset-y: -30px;
+$food-white-width: 20px;
+$food-white-height: 20px;
+$food-white-total-width: 110px;
+$food-white-total-height: 80px;
+$food-white-image: "../images/icon-sprites.png";
+$food-white: (30px, 30px, -30px, -30px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "food-white", );
+$music-black-name: "music-black";
+$music-black-x: 60px;
+$music-black-y: 0;
+$music-black-offset-x: -60px;
+$music-black-offset-y: 0;
+$music-black-width: 20px;
+$music-black-height: 20px;
+$music-black-total-width: 110px;
+$music-black-total-height: 80px;
+$music-black-image: "../images/icon-sprites.png";
+$music-black: (60px, 0, -60px, 0, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "music-black", );
+$music-white-name: "music-white";
+$music-white-x: 60px;
+$music-white-y: 30px;
+$music-white-offset-x: -60px;
+$music-white-offset-y: -30px;
+$music-white-width: 20px;
+$music-white-height: 20px;
+$music-white-total-width: 110px;
+$music-white-total-height: 80px;
+$music-white-image: "../images/icon-sprites.png";
+$music-white: (60px, 30px, -60px, -30px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "music-white", );
+$sports-black-name: "sports-black";
+$sports-black-x: 0;
+$sports-black-y: 0;
+$sports-black-offset-x: 0;
+$sports-black-offset-y: 0;
+$sports-black-width: 20px;
+$sports-black-height: 20px;
+$sports-black-total-width: 110px;
+$sports-black-total-height: 80px;
+$sports-black-image: "../images/icon-sprites.png";
+$sports-black: (0, 0, 0, 0, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "sports-black", );
+$sports-white-name: "sports-white";
+$sports-white-x: 30px;
+$sports-white-y: 60px;
+$sports-white-offset-x: -30px;
+$sports-white-offset-y: -60px;
+$sports-white-width: 20px;
+$sports-white-height: 20px;
+$sports-white-total-width: 110px;
+$sports-white-total-height: 80px;
+$sports-white-image: "../images/icon-sprites.png";
+$sports-white: (30px, 60px, -30px, -60px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "sports-white", );
+$tech-black-name: "tech-black";
+$tech-black-x: 60px;
+$tech-black-y: 60px;
+$tech-black-offset-x: -60px;
+$tech-black-offset-y: -60px;
+$tech-black-width: 20px;
+$tech-black-height: 20px;
+$tech-black-total-width: 110px;
+$tech-black-total-height: 80px;
+$tech-black-image: "../images/icon-sprites.png";
+$tech-black: (60px, 60px, -60px, -60px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "tech-black", );
+$tech-white-name: "tech-white";
+$tech-white-x: 90px;
+$tech-white-y: 0;
+$tech-white-offset-x: -90px;
+$tech-white-offset-y: 0;
+$tech-white-width: 20px;
+$tech-white-height: 20px;
+$tech-white-total-width: 110px;
+$tech-white-total-height: 80px;
+$tech-white-image: "../images/icon-sprites.png";
+$tech-white: (90px, 0, -90px, 0, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "tech-white", );
+$travel-black-name: "travel-black";
+$travel-black-x: 90px;
+$travel-black-y: 30px;
+$travel-black-offset-x: -90px;
+$travel-black-offset-y: -30px;
+$travel-black-width: 20px;
+$travel-black-height: 20px;
+$travel-black-total-width: 110px;
+$travel-black-total-height: 80px;
+$travel-black-image: "../images/icon-sprites.png";
+$travel-black: (90px, 30px, -90px, -30px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "travel-black", );
+$travel-white-name: "travel-white";
+$travel-white-x: 90px;
+$travel-white-y: 60px;
+$travel-white-offset-x: -90px;
+$travel-white-offset-y: -60px;
+$travel-white-width: 20px;
+$travel-white-height: 20px;
+$travel-white-total-width: 110px;
+$travel-white-total-height: 80px;
+$travel-white-image: "../images/icon-sprites.png";
+$travel-white: (90px, 60px, -90px, -60px, 20px, 20px, 110px, 80px, "../images/icon-sprites.png", "travel-white", );
+$art-black-2x-name: "art-black@2x";
+$art-black-2x-x: 60px;
+$art-black-2x-y: 0;
+$art-black-2x-offset-x: -60px;
+$art-black-2x-offset-y: 0;
+$art-black-2x-width: 40px;
+$art-black-2x-height: 40px;
+$art-black-2x-total-width: 220px;
+$art-black-2x-total-height: 160px;
+$art-black-2x-image: "../images/icon-sprites@2x.png";
+$art-black-2x: (60px, 0, -60px, 0, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "art-black@2x", );
+$art-white-2x-name: "art-white@2x";
+$art-white-2x-x: 0;
+$art-white-2x-y: 120px;
+$art-white-2x-offset-x: 0;
+$art-white-2x-offset-y: -120px;
+$art-white-2x-width: 40px;
+$art-white-2x-height: 40px;
+$art-white-2x-total-width: 220px;
+$art-white-2x-total-height: 160px;
+$art-white-2x-image: "../images/icon-sprites@2x.png";
+$art-white-2x: (0, 120px, 0, -120px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "art-white@2x", );
+$food-black-2x-name: "food-black@2x";
+$food-black-2x-x: 0;
+$food-black-2x-y: 60px;
+$food-black-2x-offset-x: 0;
+$food-black-2x-offset-y: -60px;
+$food-black-2x-width: 40px;
+$food-black-2x-height: 40px;
+$food-black-2x-total-width: 220px;
+$food-black-2x-total-height: 160px;
+$food-black-2x-image: "../images/icon-sprites@2x.png";
+$food-black-2x: (0, 60px, 0, -60px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "food-black@2x", );
+$food-white-2x-name: "food-white@2x";
+$food-white-2x-x: 60px;
+$food-white-2x-y: 60px;
+$food-white-2x-offset-x: -60px;
+$food-white-2x-offset-y: -60px;
+$food-white-2x-width: 40px;
+$food-white-2x-height: 40px;
+$food-white-2x-total-width: 220px;
+$food-white-2x-total-height: 160px;
+$food-white-2x-image: "../images/icon-sprites@2x.png";
+$food-white-2x: (60px, 60px, -60px, -60px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "food-white@2x", );
+$music-black-2x-name: "music-black@2x";
+$music-black-2x-x: 120px;
+$music-black-2x-y: 0;
+$music-black-2x-offset-x: -120px;
+$music-black-2x-offset-y: 0;
+$music-black-2x-width: 40px;
+$music-black-2x-height: 40px;
+$music-black-2x-total-width: 220px;
+$music-black-2x-total-height: 160px;
+$music-black-2x-image: "../images/icon-sprites@2x.png";
+$music-black-2x: (120px, 0, -120px, 0, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "music-black@2x", );
+$music-white-2x-name: "music-white@2x";
+$music-white-2x-x: 120px;
+$music-white-2x-y: 60px;
+$music-white-2x-offset-x: -120px;
+$music-white-2x-offset-y: -60px;
+$music-white-2x-width: 40px;
+$music-white-2x-height: 40px;
+$music-white-2x-total-width: 220px;
+$music-white-2x-total-height: 160px;
+$music-white-2x-image: "../images/icon-sprites@2x.png";
+$music-white-2x: (120px, 60px, -120px, -60px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "music-white@2x", );
+$sports-black-2x-name: "sports-black@2x";
+$sports-black-2x-x: 0;
+$sports-black-2x-y: 0;
+$sports-black-2x-offset-x: 0;
+$sports-black-2x-offset-y: 0;
+$sports-black-2x-width: 40px;
+$sports-black-2x-height: 40px;
+$sports-black-2x-total-width: 220px;
+$sports-black-2x-total-height: 160px;
+$sports-black-2x-image: "../images/icon-sprites@2x.png";
+$sports-black-2x: (0, 0, 0, 0, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "sports-black@2x", );
+$sports-white-2x-name: "sports-white@2x";
+$sports-white-2x-x: 60px;
+$sports-white-2x-y: 120px;
+$sports-white-2x-offset-x: -60px;
+$sports-white-2x-offset-y: -120px;
+$sports-white-2x-width: 40px;
+$sports-white-2x-height: 40px;
+$sports-white-2x-total-width: 220px;
+$sports-white-2x-total-height: 160px;
+$sports-white-2x-image: "../images/icon-sprites@2x.png";
+$sports-white-2x: (60px, 120px, -60px, -120px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "sports-white@2x", );
+$tech-black-2x-name: "tech-black@2x";
+$tech-black-2x-x: 120px;
+$tech-black-2x-y: 120px;
+$tech-black-2x-offset-x: -120px;
+$tech-black-2x-offset-y: -120px;
+$tech-black-2x-width: 40px;
+$tech-black-2x-height: 40px;
+$tech-black-2x-total-width: 220px;
+$tech-black-2x-total-height: 160px;
+$tech-black-2x-image: "../images/icon-sprites@2x.png";
+$tech-black-2x: (120px, 120px, -120px, -120px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "tech-black@2x", );
+$tech-white-2x-name: "tech-white@2x";
+$tech-white-2x-x: 180px;
+$tech-white-2x-y: 0;
+$tech-white-2x-offset-x: -180px;
+$tech-white-2x-offset-y: 0;
+$tech-white-2x-width: 40px;
+$tech-white-2x-height: 40px;
+$tech-white-2x-total-width: 220px;
+$tech-white-2x-total-height: 160px;
+$tech-white-2x-image: "../images/icon-sprites@2x.png";
+$tech-white-2x: (180px, 0, -180px, 0, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "tech-white@2x", );
+$travel-black-2x-name: "travel-black@2x";
+$travel-black-2x-x: 180px;
+$travel-black-2x-y: 60px;
+$travel-black-2x-offset-x: -180px;
+$travel-black-2x-offset-y: -60px;
+$travel-black-2x-width: 40px;
+$travel-black-2x-height: 40px;
+$travel-black-2x-total-width: 220px;
+$travel-black-2x-total-height: 160px;
+$travel-black-2x-image: "../images/icon-sprites@2x.png";
+$travel-black-2x: (180px, 60px, -180px, -60px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "travel-black@2x", );
+$travel-white-2x-name: "travel-white@2x";
+$travel-white-2x-x: 180px;
+$travel-white-2x-y: 120px;
+$travel-white-2x-offset-x: -180px;
+$travel-white-2x-offset-y: -120px;
+$travel-white-2x-width: 40px;
+$travel-white-2x-height: 40px;
+$travel-white-2x-total-width: 220px;
+$travel-white-2x-total-height: 160px;
+$travel-white-2x-image: "../images/icon-sprites@2x.png";
+$travel-white-2x: (180px, 120px, -180px, -120px, 40px, 40px, 220px, 160px, "../images/icon-sprites@2x.png", "travel-white@2x", );
+$spritesheet-width: 110px;
+$spritesheet-height: 80px;
+$spritesheet-image: "../images/icon-sprites.png";
+$spritesheet-sprites: ($art-black, $art-white, $food-black, $food-white, $music-black, $music-white, $sports-black, $sports-white, $tech-black, $tech-white, $travel-black, $travel-white, );
+$spritesheet: (110px, 80px, "../images/icon-sprites.png", $spritesheet-sprites, );
+$retina-spritesheet-width: 220px;
+$retina-spritesheet-height: 160px;
+$retina-spritesheet-image: "../images/icon-sprites@2x.png";
+$retina-spritesheet-sprites: ($art-black-2x, $art-white-2x, $food-black-2x, $food-white-2x, $music-black-2x, $music-white-2x, $sports-black-2x, $sports-white-2x, $tech-black-2x, $tech-white-2x, $travel-black-2x, $travel-white-2x, );
+$retina-spritesheet: (220px, 160px, "../images/icon-sprites@2x.png", $retina-spritesheet-sprites, );
+
+// These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+//
+// The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+$art-black-group-name: "art-black";
+$art-black-group: ("art-black", $art-black, $art-black-2x, );
+$art-white-group-name: "art-white";
+$art-white-group: ("art-white", $art-white, $art-white-2x, );
+$food-black-group-name: "food-black";
+$food-black-group: ("food-black", $food-black, $food-black-2x, );
+$food-white-group-name: "food-white";
+$food-white-group: ("food-white", $food-white, $food-white-2x, );
+$music-black-group-name: "music-black";
+$music-black-group: ("music-black", $music-black, $music-black-2x, );
+$music-white-group-name: "music-white";
+$music-white-group: ("music-white", $music-white, $music-white-2x, );
+$sports-black-group-name: "sports-black";
+$sports-black-group: ("sports-black", $sports-black, $sports-black-2x, );
+$sports-white-group-name: "sports-white";
+$sports-white-group: ("sports-white", $sports-white, $sports-white-2x, );
+$tech-black-group-name: "tech-black";
+$tech-black-group: ("tech-black", $tech-black, $tech-black-2x, );
+$tech-white-group-name: "tech-white";
+$tech-white-group: ("tech-white", $tech-white, $tech-white-2x, );
+$travel-black-group-name: "travel-black";
+$travel-black-group: ("travel-black", $travel-black, $travel-black-2x, );
+$travel-white-group-name: "travel-white";
+$travel-white-group: ("travel-white", $travel-white, $travel-white-2x, );
+$retina-groups: ($art-black-group, $art-white-group, $food-black-group, $food-white-group, $music-black-group, $music-white-group, $sports-black-group, $sports-white-group, $tech-black-group, $tech-white-group, $travel-black-group, $travel-white-group, );
+
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+//   It should be used with a "retina group" variable.
+//
+// The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+//
+// $icon-home-group: ("icon-home", $icon-home, $icon-home-2x, );
+//
+// .icon-home {
+//   @include retina-sprite($icon-home-group);
+// }
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
+
+// The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+//   This yields the same output as CSS retina template but can be overridden in SCSS
+//
+// @include retina-sprites($retina-groups);
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
+    }
+  }
+}

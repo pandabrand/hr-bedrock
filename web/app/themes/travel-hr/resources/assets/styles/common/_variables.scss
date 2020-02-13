@@ -1,0 +1,68 @@
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+$theme-colors: (
+  primary: #000
+);
+
+$black :                #000;
+$white:                 #fff;
+$light-gray:            #f3f3f3;
+$gray:                  #d8d8d8;
+$dark-gray:             #979797;
+
+$off-black:             #222;
+$off-white:             #fffefe;
+
+$red:                   #ef3e4a;
+$dark-red:              #8b0000;
+
+$black-point_1:         rgba($black, 0.1);
+
+$brand-primary:         $black;
+$color__background:     $light-gray;
+$color__text-main:      $black;
+$color__test:           $dark-red;
+$color__link:           $red;
+$color__link--active:   $gray;
+$color__border:         $black;
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:     "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+$font-awesome:                "fontawesome", $font-family-base;
+// stylelint-enable value-keyword-case
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-color:                theme-color("primary");
+$color__background:           $light-gray;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              theme-color("primary") !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15% !default;
+

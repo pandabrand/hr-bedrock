@@ -1,0 +1,60 @@
+
+.icon {
+  padding-right: 1rem;
+
+  &.icon-art-black {
+    @include retina-sprite($art-black-group);
+  }
+
+  &.icon-art-white {
+    @include retina-sprite($art-white-group);
+  }
+
+  &.icon-food-black {
+    @include retina-sprite($food-black-group);
+  }
+
+  &.icon-food-white {
+    @include retina-sprite($food-white-group);
+  }
+
+  &.icon-music-black {
+    @include retina-sprite($music-black-group);
+  }
+
+  &.icon-music-white {
+    @include retina-sprite($music-white-group);
+  }
+
+  &.icon-sports-black {
+    @include retina-sprite($sports-black-group);
+  }
+
+  &.icon-sports-white {
+    @include retina-sprite($sports-white-group);
+  }
+
+  &.icon-tech-black {
+    @include retina-sprite($tech-black-group);
+  }
+
+  &.icon-tech-white {
+    @include retina-sprite($tech-white-group);
+  }
+
+  &.icon-travel-black {
+    @include retina-sprite($travel-black-group);
+  }
+
+  &.icon-travel-white {
+    @include retina-sprite($travel-white-group);
+  }
+
+  &.icon-uncategorized-black {
+    @include retina-sprite($music-black-group);
+  }
+
+  &.icon-uncategorized-white {
+    @include retina-sprite($music-white-group);
+  }
+}

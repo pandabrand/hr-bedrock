@@ -1,0 +1,329 @@
+.row {
+  &.cc-row {
+    &.archive__navigation-row {
+      &.space-between {
+        justify-content: space-between;
+      }
+
+      &.space-around {
+        justify-content: space-around;
+      }
+
+      padding: 0 2rem;
+
+      .prev,
+      .next {
+        text-transform: uppercase;
+      }
+
+      .current {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.travel {
+  &.travel__navigation {
+    width: 100%;
+
+    .travel__navigation-row {
+      padding-left: 0;
+      padding-right: 0;
+      flex-direction: row;
+      justify-content: space-around;
+
+      @media (min-width: 769px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .travel__navigation__wrapper {
+        @media (max-width: 480px) {
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    .travel__navigation__dropdowns {
+      @media (max-width: 480px) {
+        min-height: 3rem;
+        padding: 0;
+      }
+    }
+
+    &.sticky-header {
+      position: sticky;
+      z-index: 1;
+      top: calc(-100% + 82px);
+    }
+
+    .row {
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      .navbar {
+        padding: 0;
+      }
+
+      .btn-secondary {
+        border: 0;
+        background-color: transparent;
+        border-right: $black 1px solid;
+        border-radius: 0;
+        margin: 1rem;
+        padding: 0;
+
+        @media (max-width: 468px) {
+          border-right: none;
+          margin: 0;
+        }
+
+        &.travel__navigation__button {
+          border: none;
+          margin: 0.5rem 0.5rem 0 0;
+          color: $color__text-main;
+          text-align: center;
+
+          &:link,
+          &:visited {
+            color: $color__text-main;
+          }
+
+          &:hover,
+          &:active {
+            color: $color__link--active;
+            text-decoration: none;
+          }
+        }
+
+        &.travel__navigation__button--near-me {
+          margin: 0.5rem 0;
+
+          &::before {
+            font-family: FontAwesome, sans-serif;
+            font-size: 2rem;
+            content: "\f05b";
+            vertical-align: middle;
+            transform: rotate(-45deg);
+            display: inline-block;
+          }
+        }
+
+        &.travel__navigation__button--browse {
+          &::before {
+            font-family: FontAwesome, sans-serif;
+            font-size: 2rem;
+            margin-right: 0.5rem;
+            content: "\f1de";
+            vertical-align: middle;
+          }
+        }
+
+        &.navbar-toggler {
+          font-size: 1rem;
+          padding-top: 0.25rem;
+        }
+      }
+
+      .btn {
+        @extend .medium;
+
+        padding: 0;
+        font-size: 0.875rem;
+        letter-spacing: 1.75px;
+
+        &.btn-heavy {
+          padding: 5px 25px;
+          font-weight: 700;
+        }
+      }
+
+      .dropdown {
+        .dropdown-toggle {
+          color: $color__text-main;
+          text-align: center;
+
+          &:link,
+          &:visited {
+            color: $color__text-main;
+          }
+
+          &:hover,
+          &:active {
+            color: $color__link--active;
+            text-decoration: none;
+          }
+
+          font-size: 0.875rem;
+          letter-spacing: 1.75px;
+
+          &::before {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+          }
+
+          &::after {
+            border: 0;
+            height: auto;
+            width: auto;
+            font-family: FontAwesome, sans-serif;
+            margin-right: 1.5rem;
+            margin-left: 0.1rem;
+            font-size: 0.75rem !important;
+            content: "\f078";
+          }
+        }
+
+        &.show {
+          .dropdown-toggle {
+            color: $color__text-main;
+            text-align: center;
+
+            &:link,
+            &:visited {
+              color: $color__text-main;
+            }
+
+            &:hover,
+            &:active {
+              color: $color__link--active;
+              text-decoration: none;
+            }
+
+            &::after {
+              content: "\f077";
+            }
+          }
+        }
+
+        &.full-width {
+          position: static;
+          margin-left: 1.5rem;
+          margin-right: 1.5rem;
+
+          @media (max-width: 768px) {
+            margin: auto 0;
+          }
+
+          .dropdown-menu {
+            right: 0;
+            background-color: $color__background;
+            border-radius: 0;
+            padding: 1rem;
+
+            a {
+              white-space: normal;
+
+              &:hover,
+              &:active {
+                background-color: $color__background;
+                color: $dark-gray;
+              }
+            }
+
+            .dropdown-selections {
+              height: 28rem;
+              columns: 3;
+              column-fill: auto;
+              overflow: hidden;
+
+              @media (max-width: 480px) {
+                height: 50vh;
+                columns: 2;
+                overflow: scroll;
+              }
+
+              .dropdown-item {
+                color: $color__text-main;
+
+                &:link,
+                &:visited {
+                  color: $color__text-main;
+                }
+
+                &:hover,
+                &:active {
+                  color: $color__link--active;
+                  text-decoration: none;
+                }
+
+                font-size: 0.875rem;
+                letter-spacing: 1.75px;
+                padding-bottom: 0.75rem;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                text-align: left;
+
+                @media (max-width: 768px) {
+                  text-align: center;
+                }
+
+                &.active {
+                  color: $white;
+
+                  &:link,
+                  &:visited {
+                    color: $white;
+                  }
+
+                  &:hover {
+                    color: $light-gray;
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+          }
+
+          .menu-feature {
+            padding-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ui-menu-item {
+  padding: 0.5rem 0;
+}
+
+.map-stuck {
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 2.875rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-left: -1.875rem;
+
+    &.travel__detail__map__map-wrapper {
+      z-index: 25;
+    }
+  }
+
+  @media (max-width: 480px) {
+    top: 5.375rem;
+  }
+}
+
+.map-list-stuck {
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 15.5rem;
+  }
+}
+
+.loader-anim {
+  display: none;
+
+  &.show {
+    display: inline-block;
+  }
+}
+

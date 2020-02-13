@@ -1,0 +1,35 @@
+{
+  "entry": {
+    "main": [
+      "./scripts/main.js",
+      "./styles/main.scss"
+    ],
+    "customizer": [
+      "./scripts/customizer.js"
+    ],
+    "respbgimages": [
+      "./scripts/util/respbgimages.js"
+    ],
+    "mapstyles": [
+      "./scripts/util/mapStyles.js"
+    ],
+    "map_data": [
+      "./scripts/util/mapData.js"
+    ],
+    "ccAutocomplete": [
+      "./scripts/util/ccAutocomplete.js"
+    ],
+    "haversine": [
+      "./scripts/util/haversine.js"
+    ]
+  },
+  "publicPath": "/app/themes/travel-hr",
+  "devUrl": "http://travel.hardrock.test",
+  "proxyUrl": "http://localhost:3000",
+  "cacheBusting": "[name]_[hash:8]",
+  "watch": [
+    "app/**/*.php",
+    "config/**/*.php",
+    "resources/views/**/*.php"
+  ]
+}

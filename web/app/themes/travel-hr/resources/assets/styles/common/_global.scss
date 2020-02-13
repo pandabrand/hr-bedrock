@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&display=swap");
+@import "~font-awesome/scss/font-awesome";
+@import "~leaflet/dist/leaflet";
+@import "icon_sprites";
+@import "icon";
+
+.image--filter_four_layer-blend {
+  background-blend-mode: normal, soft-light, normal, normal;
+}
+
+.medium {
+  // font-family: $colfax-medium;
+  font-weight: 500;
+}
+
+.bold {
+  // font-family: $colfax-bold;
+  font-weight: 700;
+}
+
+.sticky-wrapper {
+  width: 100%;
+}
+
+.stuck {
+  position: fixed;
+  top: 0;
+
+  &.travel__navigation {
+    z-index: 25;
+  }
+}

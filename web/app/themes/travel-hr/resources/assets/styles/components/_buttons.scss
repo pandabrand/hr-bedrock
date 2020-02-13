@@ -1,0 +1,23 @@
+.btn {
+  border-radius: 0;
+  padding: 5px 30px;
+  margin: 0 25px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: $white;
+  color: $black;
+
+  &:hover {
+    background: invert($color: $white);
+    color: invert($color: $black);
+  }
+}
+
+.btn-heavy {
+  padding: 5px 25px;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: transparent;
+}
