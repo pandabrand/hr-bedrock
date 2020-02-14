@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import 'waypoints/lib/jquery.waypoints';
-import _ from 'underscore/underscore-min';
+import _ from 'underscore/underscore';
 import L from 'leaflet/dist/leaflet';
 
 export default {
@@ -47,6 +47,7 @@ export default {
         popupAnchor: [0, -26],
     });
     jQuery('#cc-map').ready(function() {
+      document.querySelector('.travel__detail__map__map-wrapper').innerHTML = '<div id="cc-map" class="travel__detail__map__map"></div>';
       map = L.map('cc-map',{scrollWheelZoom:false}).setView([parsed_map_vars.city.location.lat, parsed_map_vars.city.location.lng], 15);
 
 

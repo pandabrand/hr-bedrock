@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import 'waypoints/lib/jquery.waypoints';
-import _ from 'underscore/underscore-min';
+import _ from 'underscore/underscore';
 import L from 'leaflet/dist/leaflet';
 
 export default {
