@@ -4,18 +4,30 @@ namespace App;
 
 use Roots\Sage\Assets;
 
-function cc_autocomplete_scripts() {
-  wp_enqueue_script( 'jquery-ui-autocomplete' );
-  wp_register_script( 'cc-autocomplete', asset_path('scripts/ccAutocomplete.js'), ['sage/js', 'jquery-ui-autocomplete'], null, true );
-  wp_localize_script( 'cc-autocomplete', 'ccAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
-  wp_enqueue_script( 'cc-autocomplete' );
-}
-add_action( 'wp_enqueue_scripts', 'cc_autocomplete_scripts' );
 
-add_action( 'wp_ajax_cc_autocomplete_search', 'cc_autocomplete_search' );
-add_action( 'wp_ajax_nopriv_cc_autocomplete_search', 'cc_autocomplete_search' );
+add_action( 'wp_enqueue_scripts', function () {
+    wp_enqueue_script( 'jquery-ui-autocomplete' );
+    wp_register_script( 'cc-autocomplete', asset_path('scripts/ccAutocomplete.js'), ['sage/js', 'jquery-ui-autocomplete'], null, true );
+    wp_localize_script( 'cc-autocomplete', 'ccAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'cc-autocomplete' );
+} );
 
-function cc_autocomplete_search() {
+add_action( 'wp_ajax_cc_autocomplete_search', function () {
+    $term = strtolower( $_GET['term'] );
+    $post_type = strtolower( $_GET['post_type'] );
+    $suggestions;
+    $search_results = '';
+    if( $post_type == 'location' ) {
+      $suggestions = cc_category_search($term);
+    } else {
+      $suggestions = cc_post_search($term, $post_type);
+    }
+    $response = json_encode( $suggestions );
+    echo $response;
+    exit();
+  } );
+
+add_action( 'wp_ajax_nopriv_cc_autocomplete_search', function () {
   $term = strtolower( $_GET['term'] );
   $post_type = strtolower( $_GET['post_type'] );
   $suggestions;
@@ -28,7 +40,9 @@ function cc_autocomplete_search() {
   $response = json_encode( $suggestions );
   echo $response;
   exit();
-}
+} );
+
+
 
 function cc_category_search($term) {
   $cc_category_search_cache_key = 'cc_category_search_cache_key';
