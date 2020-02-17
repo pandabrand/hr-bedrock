@@ -52,7 +52,8 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'sage'),
-        'home_navigation' => __('Home Navigation', 'sage')
+        'home_navigation' => __('Home Navigation', 'sage'),
+        'footer-one' => __('Footer One', 'sage')
     ]);
 
     /**

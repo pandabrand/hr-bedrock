@@ -1,4 +1,4 @@
-<div class="col-md-2 artist-column">
+<div class="col-md-3 artist-column">
   {!! $image !!}
   <div class="title">Meet {{$name}}</div>
   <div class="summary">{{$summary}}</div>

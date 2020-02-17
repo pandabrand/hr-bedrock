@@ -1,15 +1,30 @@
 .artist-column {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  img {
+    margin: 0 auto;
+  }
 
   .title {
     margin: 1em 0;
     font-size: $font-size-lg;
+    text-align: center;
   }
 
   .locations {
+    display: flex;
+
     ul {
       padding: 0;
-      margin: 25px 0 25px 15px;
+      margin: 25px auto;
+
+      @include media-breakpoint-up(md) {
+        margin: 25px 0 25px 15px;
+      }
     }
   }
 

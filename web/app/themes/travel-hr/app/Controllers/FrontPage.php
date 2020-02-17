@@ -18,7 +18,7 @@ class FrontPage extends Controller
         {
             $args = array(
                 'post_type' => 'artist',
-                'posts_per_page' => 5
+                'posts_per_page' => 4
             );
 
             $query = new \WP_Query( $args );
