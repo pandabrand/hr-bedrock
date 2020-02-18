@@ -5,6 +5,10 @@
   font-weight: bold;
 }
 
+.temp-line {
+  line-height: 2rem;
+}
+
 .btn-primary {
   background: $white;
   color: $black;
@@ -12,6 +16,17 @@
   &:hover {
     background: invert($color: $white);
     color: invert($color: $black);
+  }
+
+  &.inverse {
+    background: $black;
+    color: $white;
+    border: $white 1px solid;
+
+    &:hover {
+      background: invert($color: $white);
+      color: invert($color: $black);
+    }
   }
 }
 
