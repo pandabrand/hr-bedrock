@@ -4,18 +4,21 @@
   }
 
   .c-bg-image {
-    background: linear-gradient(rgba(31, 33, 38, 0.4), rgba(31, 33, 38, 0.4)), url(../images/crowd-resized.jpg);
+    background: linear-gradient(rgba(31, 33, 38, 0.4), rgba(31, 33, 38, 0.4)), url(../images/20150802_002743.jpg);
     background-position: center, center;
     background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
   }
 
   .page-header {
-    margin-bottom: 65px;
+    padding-top: 35px;
+    margin-bottom: 35px;
 
     h1 {
+      font-weight: 700;
       text-align: center;
       text-transform: uppercase;
+      color: $white;
     }
   }
 

@@ -1,6 +1,6 @@
 <div class="col-md-3 artist-column">
-  {!! $image !!}
-  <div class="title">Meet {{$name}}</div>
+  <a href="{{$link}}" rel="bookmark">{!! $image !!}</a>
+  <div class="title"><a href="{{$link}}" rel="bookmark">Meet {{$name}}</a></div>
   <div class="summary">{{$summary}}</div>
   <div><a href="{{$link}}" rel="bookmark">Learn More</a></div>
   <div class="locations">

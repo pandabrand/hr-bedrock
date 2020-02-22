@@ -1,7 +1,7 @@
 <header class="banner">
   <div class="container temp-padding">
     <div class="hr-nav">
-      <a class="brand" href="{{ home_url('/') }}"><img class="img-fluid" src="@asset('images/hard-rock-hotel-2-logo.png')"></a>
+      <a class="brand" href="{{ home_url('/') }}"><img class="img-fluid" src="@asset('images/HRHotel_low-white.png')"></a>
       <a href="https://www.hardrockhotels.com/stay-like-a-legend-promotion" class="btn btn-primary inverse temp-line">Book Now</a>
     </div>
 
