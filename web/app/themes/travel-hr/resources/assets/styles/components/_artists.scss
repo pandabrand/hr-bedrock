@@ -5,18 +5,37 @@
   justify-content: flex-start;
   margin-bottom: 3rem;
 
+  .artist-child {
+    flex: 1;
+  }
+
+  .summary {
+    flex-basis: 15%;
+    overflow: hidden;
+  }
+
+  .image {
+    flex-basis: 35%;
+  }
+
   img {
     display: block;
     margin: 0 auto;
   }
 
+  .link {
+    flex-basis: 10%;
+  }
+
   .title {
+    flex-basis: 10%;
     margin: 1em 0;
     font-size: $font-size-lg;
     text-align: center;
   }
 
   .locations {
+    flex-basis: 40%;
     display: flex;
 
     ul {
