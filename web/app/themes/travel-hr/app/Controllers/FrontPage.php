@@ -37,7 +37,7 @@ class FrontPage extends Controller
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),
                         'summary' => wp_trim_words( $post->post_content, '15', '' ),
-                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 5 )
+                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 )
                     );
                 }
             }
