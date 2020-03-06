@@ -20,6 +20,15 @@
       </div>
       @if( is_single() || is_tax( 'locations_types' ) )
         @include('partials.map')
+        <div class="additional-content">
+          <div class="container">
+            <div class="row">
+              @foreach($additional_posts as $additional_post)
+                @include('partials.additional', $additional_post)
+              @endforeach
+            </div>
+          </div>
+        </div>
       @endif
     </div>
     @php do_action('get_footer') @endphp

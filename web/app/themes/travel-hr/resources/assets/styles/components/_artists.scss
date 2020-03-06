@@ -6,16 +6,14 @@
   margin-bottom: 3rem;
 
   .artist-child {
-    flex: 1;
   }
 
   .summary {
-    flex-basis: 15%;
+    flex-basis: 50%;
     overflow: hidden;
   }
 
   .image {
-    flex-basis: 35%;
   }
 
   img {
@@ -24,12 +22,12 @@
   }
 
   .link {
-    flex-basis: 10%;
+    padding: 0 10px;
   }
 
   .title {
-    flex-basis: 10%;
-    margin: 1em 0;
+    width: 100%;
+    margin: 1em 0 0;
     font-size: $font-size-lg;
     text-align: center;
   }

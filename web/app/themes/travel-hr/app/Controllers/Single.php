@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Sober\Controller\Controller;
+use App;
 
 class Single extends Controller
 {
@@ -28,6 +29,7 @@ class Single extends Controller
         }
         return $locations;
     }
+
     public static function location_city_object( $location = null )
     {
         $id = ($location == null) ? get_the_ID() : $location->ID;
@@ -71,5 +73,33 @@ class Single extends Controller
         $id = ($location == null) ? get_the_ID() : $location->ID;
         $address = get_field('address', $id);
         return ['lat' => $address['lat'], 'lng' => $address['lng']];
+    }
+
+    public function additional_posts()
+    {
+        $args = array(
+            'post_type' => get_post_type(),
+            'orderby'   => 'rand',
+            'posts_per_page' => 4,
+            'exclude' => array(get_the_ID()),
+        );
+
+        $posts = array_map(
+            function( $post ) {
+                return array(
+                    'link' => get_the_permalink($post->ID),
+                    'image' => get_the_post_thumbnail_url($post, 'large-feature'),
+                    'icon_class' => App\get_post_icon_class($post),
+                    'category_type_title' => App\get_category_type_title($post),
+                    'subject' => App\get_category_type_subject($post),
+                    'title' => App\get_card_title($post),
+                    'excerpt' => App\get_card_excerpt($post),
+                );
+            },
+            get_posts($args)
+        );
+
+        return $posts;
+
     }
 }
