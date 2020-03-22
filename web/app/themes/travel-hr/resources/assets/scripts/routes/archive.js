@@ -3,6 +3,8 @@
 import 'waypoints/lib/jquery.waypoints';
 import _ from 'underscore/underscore';
 import L from 'leaflet/dist/leaflet';
+import map_icon from '../../images/map_icon.png';
+import map_icon_2x from '../../images/map_icon@2x.png';
 
 export default {
   init: function() {
@@ -40,8 +42,8 @@ export default {
     parsed_map_vars = JSON.parse(map_vars);
 
     var ccIcon = L.divIcon({
-        html: '<div class="cc-map-marker"><img class="img-fluid" src="/app/themes/travel-hr/dist/images/map_icon.png" srcset="/app/themes/travel-hr/dist/images/map_icon.png 1x, /app/themes/travel-hr/dist/images/map_icon@2x.png 2x" /></div>',
-        iconSize: [34, 50],
+      html: '<div class="cc-map-marker"><img class="img-fluid" src="' + map_icon + '" srcset="'+ map_icon +' 1x, ' + map_icon_2x + ' 2x" /></div>',
+      iconSize: [34, 50],
         iconAnchor: [18, 49],
         popupAnchor: [0, -26],
     });
