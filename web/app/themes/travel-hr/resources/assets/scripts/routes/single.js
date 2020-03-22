@@ -5,6 +5,9 @@ import _ from 'underscore/underscore';
 import L from 'leaflet/dist/leaflet';
 import map_icon from '../../images/map_icon.png';
 import map_icon_2x from '../../images/map_icon@2x.png';
+import hrh_icon from '../../images/hrh-map_icon.png';
+import hrh_icon_2x from '../../images/hrh-map_icon@2x.png';
+import hrh_hotels from '../util/hrhData';
 
 export default {
   init: function() {
@@ -48,6 +51,14 @@ export default {
         iconAnchor: [18, 49],
         popupAnchor: [0, -26],
     });
+
+    var hrhIcon = L.divIcon({
+      html: '<div class="hrh-map-marker"><img class="img-fluid" src="' + hrh_icon + '" srcset="'+ hrh_icon +' 1x, ' + hrh_icon_2x + ' 2x" /></div>',
+      iconSize: [34, 50],
+        iconAnchor: [18, 49],
+        popupAnchor: [0, -26],
+    });
+
     jQuery('#cc-map').ready(function() {
       document.querySelector('.travel__detail__map__map-wrapper').innerHTML = '<div id="cc-map" class="travel__detail__map__map"></div>';
       map = L.map('cc-map',{scrollWheelZoom:false}).setView([parsed_map_vars.city.location.lat, parsed_map_vars.city.location.lng], 15);
@@ -58,8 +69,21 @@ export default {
       mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
       L.tileLayer(mbURL + parsed_map_vars.map_info.api_key, {attribution: mbAttr}).addTo(map);
       // L.tileLayer(mbURL + parsed_map_vars.map_info.api_key, {id: 'mapbox.light', attribution: mbAttr}).addTo(map);
+
+      let hotel_markers = L.featureGroup();
+      for(var x = 0; x < hrh_hotels.hotels.length; x++) {
+        var hotel = hrh_hotels.hotels[x];
+        var hotel_place = L.marker([hotel.lat, hotel.lng],{icon:hrhIcon, riseOnHover:true, riseOffset: 3000});
+        hotel_place.bindPopup('<div class=" cc-marker__popup strong">'+hotel.name+'</div>');
+        hotel_markers.addLayer(hotel_place);
+        hotel.marker_id = hotel_markers.getLayerId(hotel_place);
+        jQuery('#'+hotel.location_id).attr('data-cc-marker', hotel.marker_id);
+        jQuery('#'+hotel.location_id).addClass(hotel.marker_id);
+      }
+      hotel_markers.addTo(map);
+
       markers = L.featureGroup();
-      for(var x = 0; x < parsed_map_vars.locations.length; x++) {
+      for(x = 0; x < parsed_map_vars.locations.length; x++) {
         var feature = parsed_map_vars.locations[x];
         var marker_place = L.marker([feature.coords.lat, feature.coords.lng],{icon:ccIcon, riseOnHover:true, riseOffset: 3000});
         marker_place.bindPopup('<div class=" cc-marker__popup strong">'+feature.title+'</div>');
