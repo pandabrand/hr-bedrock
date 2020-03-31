@@ -27,6 +27,7 @@ class FrontPage extends Controller
             {
                 foreach( $query->posts as $post )
                 {
+                    $summary = ( has_excerpt( $post->ID ) ) ? $post->post_excerpt : wp_trim_words( $post->post_content, '35', '...' );
                     $artists[] = array(
                         'image' => wp_get_attachment_image(
                             get_post_thumbnail_id( $post->ID ),
@@ -36,7 +37,7 @@ class FrontPage extends Controller
                         ),
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),
-                        'summary' => wp_trim_words( $post->post_content, '35', '' ),
+                        'summary' => $summary,
                         'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 )
                     );
                 }

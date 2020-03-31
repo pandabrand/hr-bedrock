@@ -164,7 +164,7 @@ function get_post_icon_class($post = null)
             if( !empty ( $post_categories ) ) {
                 $category = get_category($post_categories[0]);
                 $term = get_term_by('slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-                $icon_class = 'icon icon-'.$term->slug.'-white';
+                $icon_class = (!$term) ? 'icon icon-travel-white' : 'icon icon-'.$term->slug.'-white';
             } else {
                 $icon_class = 'icon icon-travel-white';
             }

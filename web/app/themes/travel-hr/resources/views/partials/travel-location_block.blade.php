@@ -54,6 +54,13 @@
                     <i class="fa fa-map"></i> directions
                   </a>
                 </div>
+                @if( !empty( Single::instagram_url( $location ) ) )
+                <div class="card__link">
+                  <a href="{!! Single::instagram_url( $location ) !!}" rel="external" target="_blank">
+                    <i class="fa fa-instagram"></i> instagram
+                  </a>
+                </div>
+                @endif
               </div>
 
             </div>

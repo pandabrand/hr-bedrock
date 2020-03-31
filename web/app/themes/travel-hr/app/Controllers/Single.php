@@ -39,11 +39,57 @@ class Single extends Controller
         return (!empty($location_city_id)) ? get_post($location_city_id[0])->post_name : '';
     }
 
+    public static function instagram_url( $location = null )
+    {
+        $id = $location->ID ?? get_the_ID();
+
+        return get_field( 'instagram_url', $id );
+    }
+
+    public static function instagram_image_url( $location = null )
+    {
+        $id = $location->ID ?? get_the_ID();
+
+        if( !empty( $instagram_image = get_field( 'instagram_image', $id ) ) )
+        {
+            $pattern = '/(^https?:\/\/www.instagram.com\/p\/[0-9a-zA-Z-_]*\/)/';
+
+            $url = ( preg_match( $pattern, $instagram_image, $matches ) ) ? $matches[1] . 'media/?size=l' : null;
+
+            $curl_options = array(
+                CURLOPT_CUSTOMREQUEST => 'GET',
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => TRUE,
+                CURLOPT_POSTFIELDS => array(),
+                CURLOPT_POST => FALSE,
+                CURLOPT_NOBODY => TRUE,
+                CURLOPT_FOLLOWLOCATION => true,
+            );
+
+            $ch = curl_init();
+            curl_setopt_array($ch, $curl_options);
+            $response['result'] = curl_exec($ch);
+            $response['error'] 	= curl_error($ch);
+            $response['info'] 	= curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+
+            curl_close($ch);
+
+            return $response['info'] ?? null;
+
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public static function large_url( $location = null )
     {
         $id = ($location == null) ? get_the_ID() : $location->ID;
 
-        return esc_url( wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'large-feature' )[0] );
+        $location_image = Single::instagram_image_url($location) ?? esc_url( wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'large-feature' )[0] );
+
+        return $location_image;
     }
 
     public static function artist_posts( $location = null )
