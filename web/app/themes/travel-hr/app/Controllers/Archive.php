@@ -23,4 +23,41 @@ class Archive extends Controller
             )
         );
     }
+
+    public static function getAlphaPagination()
+    {
+        $taxonomy = 'glossary';
+        $query_obj = get_queried_object();
+        $alpha_archive_name = 'hr_'.$query_obj->name.'_archive_alphabet';
+        // save the terms that have posts in an array as a transient
+        if ( false === ( $alphabet = get_transient( $alpha_archive_name ) ) ) {
+            // It wasn't there, so regenerate the data and save the transient
+            $terms = get_terms($taxonomy);
+
+            $alphabet = array();
+            if($terms){
+                foreach ($terms as $term){
+                    $alphabet[] = $term->slug;
+                }
+            }
+            set_transient( $alpha_archive_name, $alphabet );
+        }
+        // write_log($alphabet);
+
+        print '<div id="archive-menu" class="row cc-row archive__navigation-row space-around">';
+
+            foreach(range('a', 'z') as $i) :
+
+                $current = ($i == get_query_var($taxonomy)) ? "current-menu-item" : "menu-item";
+
+                if (in_array( $i, $alphabet )){
+                    printf( '<a class="page-numbers %s" href="%s">%s</a>', $current, get_term_link( $i, $taxonomy ), strtoupper($i) );
+                } else {
+                    printf( '<div class="page-numbers %s">%s</div>', $current, strtoupper($i) );
+                }
+
+            endforeach;
+
+        print '</div>';
+    }
 }

@@ -3,7 +3,7 @@
 @section('content')
   @include('partials.page-header')
 
-  <div class="container">
+  <div id="content" class="container">
     <div class="row">
       @if (!have_posts())
       <div class="alert alert-warning">
@@ -17,8 +17,8 @@
       @endwhile
 
       <div class="col-sm-12">
-        <div class="row cc-row archive__navigation-row space-around{!! $paginate_class !!}">
-          {!! Archive::getPostNav() !!}
+        <div class="row cc-row archive__navigation-row space-around">
+          {!! Archive::getAlphaPagination() !!}
         </div>
       </div>
     </div>
