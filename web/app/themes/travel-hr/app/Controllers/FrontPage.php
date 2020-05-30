@@ -18,7 +18,12 @@ class FrontPage extends Controller
         {
             $args = array(
                 'post_type' => 'artist',
-                'posts_per_page' => 4
+                'posts_per_page' => 4,
+                'meta_query' => array(
+                    'key'   => 'vibe_manager',
+                    'value' => '1',
+                    'compare' => 'NOT'
+                )
             );
 
             $query = new \WP_Query( $args );

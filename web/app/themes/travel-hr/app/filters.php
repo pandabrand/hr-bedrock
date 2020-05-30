@@ -116,13 +116,17 @@ add_action( 'pre_get_posts', function ( $query ) {
 //     $idObj = get_category_by_slug('reserved');
 //     $id = $idObj->term_id;
 //     $query->set('category__not_in', [$id]);
+  } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['artist'] ) ) {
+    $meta_query = array(
+        'key'   => 'vibe_manager',
+        'value' => '1',
+        'compare' => 'NOT'
+    );
+    $query->set( 'meta_query', $meta_query );
   } elseif( !is_admin() && is_search() ) {
     $idObj = get_category_by_slug('reserved');
     $id = $idObj->term_id;
     $query->set('category__not_in', [$id]);
-  }
-
-  if ( !is_admin() && $query->is_main_query() && is_post_type_archive() ) {
   }
 });
 
