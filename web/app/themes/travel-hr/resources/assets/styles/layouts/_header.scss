@@ -1,15 +1,27 @@
-.banner .nav li {
-  @extend .nav-item;
-}
-
 .banner .nav a {
   @extend .nav-link;
 
+  padding: 22px 1rem;
+  text-transform: uppercase;
   color: $white;
 }
 
+.banner .nav li {
+  @extend .nav-item;
+
+  &.gold-link {
+    a {
+      background-color: #87601b;
+
+      &:hover {
+        background-color: #a16826;
+      }
+    }
+  }
+}
+
 .banner {
-  background: $black;
+  background: #2b2b2b;
 
   .container {
     display: flex;
@@ -18,7 +30,7 @@
   .brand {
     display: block;
     width: 100px;
-    margin: 0 auto 10px;
+    margin: 0 0 10px;
 
     @include media-breakpoint-up(md) {
       margin: 0 25px 0 0;

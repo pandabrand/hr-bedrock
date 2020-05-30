@@ -2,13 +2,14 @@
 @import "~bootstrap/scss/functions";
 
 $theme-colors: (
-  primary: #000
+  primary: #000,
+  secondary: #59568f
 );
 
 $black :                #000;
 $white:                 #fff;
 $light-gray:            #f3f3f3;
-$gray:                  #d8d8d8;
+$gray:                  #666;
 $dark-gray:             #979797;
 
 $off-black:             #222;
@@ -21,7 +22,7 @@ $black-point_1:         rgba($black, 0.1);
 
 $brand-primary:         $black;
 $color__background:     $light-gray;
-$color__text-main:      $black;
+$color__text-main:      $gray;
 $color__test:           $dark-red;
 $color__link:           $red;
 $color__link--active:   $gray;
@@ -59,7 +60,7 @@ $color__background:           $light-gray;
 //
 // Style anchor elements.
 
-$link-color:                              theme-color("primary") !default;
+$link-color:                              theme-color("secondary") !default;
 $link-decoration:                         none !default;
 $link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   underline !default;
