@@ -70,7 +70,7 @@
     "wpackagist-plugin/bulk-delete": "*",
     "wpackagist-plugin/import-external-attachments": "*",
     "wpackagist-plugin/regenerate-thumbnails": "*",
-    "pandabrand/hr-plugin":"dev-master",
+    "pandabrand/hr-plugin":"*",
     "wpackagist-plugin/ninja-forms": "~3.2",
     "wpackagist-plugin/quick-featured-images": "~13.2",
     "wpackagist-plugin/query-monitor": "~3.5.2",
