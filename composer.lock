@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c3a1f3e5e4cdcc8e7522a7e7fb7d014",
+    "content-hash": "0d7c63e3e1996bc3a74af093d3a038bb",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -255,7 +255,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pandabrand/cc-plugin.git",
+                "url": "https://github.com/pandabrand/hr-plugin.git",
                 "reference": "origin/master"
             },
             "dist": {
@@ -292,7 +292,7 @@
                 "source": "https://github.com/pandabrand/hr-plugin/tree/master",
                 "issues": "https://github.com/pandabrand/hr-plugin/issues"
             },
-            "time": "2020-06-02T19:28:51+00:00"
+            "time": "2020-06-02T22:27:25+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1258,7 +1258,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pandabrand/hr-plugin": 20,
         "wpackagist-plugin/ewww-image-optimizer": 20,
         "roave/security-advisories": 20
     },
