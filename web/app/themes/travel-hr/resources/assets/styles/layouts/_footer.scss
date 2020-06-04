@@ -1,5 +1,5 @@
-$footer-background_color: $black;
-$footer_color: $white;
+$footer-background_color: #0f0f0f;
+$footer_color: #ababab;
 
 footer {
   .hr-row {
@@ -19,13 +19,26 @@ footer {
       ul {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
 
         .menu-item {
+          padding: 0 1rem;
+          border-right: 1px solid $footer_color;
+
+          &:last-child {
+            border-right: none;
+          }
+
           a {
             padding: 0;
-            font-weight: 700;
+            font-weight: 400;
+            text-transform: uppercase;
             color: $footer_color;
+
+            &:hover {
+              text-decoration: none;
+              color: $white;
+            }
           }
         }
       }

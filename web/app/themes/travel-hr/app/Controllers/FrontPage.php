@@ -36,9 +36,9 @@ class FrontPage extends Controller
                     $artists[] = array(
                         'image' => wp_get_attachment_image(
                             get_post_thumbnail_id( $post->ID ),
-                            'thumbnail',
+                            'medium',
                             false,
-                            array( 'class' => 'img-fluid rounded-circle')
+                            array( 'class' => 'img-fluid' )
                         ),
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),

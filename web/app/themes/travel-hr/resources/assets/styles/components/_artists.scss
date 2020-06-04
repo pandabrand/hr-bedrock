@@ -9,11 +9,21 @@
     flex-basis: 50%;
     overflow: hidden;
     padding: 10px;
+    line-height: 1.25rem;
+  }
+
+  .artist-child {
+    .fa::before {
+      vertical-align: middle;
+    }
   }
 
   img {
     display: block;
     margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
   }
 
   .link {
@@ -23,8 +33,9 @@
   .title {
     width: 100%;
     margin: 1em 0 0;
-    font-size: $font-size-lg;
+    font-size: 1.5rem;
     text-align: center;
+    text-transform: uppercase;
   }
 
   .locations {
@@ -44,9 +55,5 @@
   a {
     color: $white;
     font-weight: 900;
-
-    &:hover {
-      color: transparentize($color: #fff, $amount: 0.4);
-    }
   }
 }
