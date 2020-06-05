@@ -13,14 +13,14 @@
     </div>
     <div class="card__category-line"></div>
     <div class="card__filter"></div>
-    <div class="card__body">
-      <div class="card__copy">
-        <div class="card__title">
-          {!! App\get_card_title() !!}
-        </div>
-        <div class="card__text">
-          {!! App\get_card_excerpt() !!}
-        </div>
+  </div>
+  <div class="card__body">
+    <div class="card__copy">
+      <div class="card__title">
+        {!! App\get_card_title() !!}
+      </div>
+      <div class="card__text">
+        {!! App\get_card_excerpt() !!}
       </div>
     </div>
   </div>

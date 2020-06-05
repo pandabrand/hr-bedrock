@@ -18,7 +18,6 @@
 
       <div class="col-sm-12">
         <div class="row cc-row archive__navigation-row space-around">
-          {!! Archive::getAlphaPagination() !!}
         </div>
       </div>
     </div>

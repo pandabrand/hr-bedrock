@@ -109,7 +109,7 @@ add_action( 'pre_get_posts', function ( $query ) {
       $query->set('meta_query', $meta_query);
     }
   } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['city', 'artist'] ) ) {
-    $query->set( 'posts_per_page', 12 );
+    $query->set( 'posts_per_page', 16 );
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'asc' );
 //   } elseif( !is_admin() && $query->is_main_query() && $query->is_home() ) {
@@ -118,9 +118,16 @@ add_action( 'pre_get_posts', function ( $query ) {
 //     $query->set('category__not_in', [$id]);
   } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['artist'] ) ) {
     $meta_query = array(
+        'relation' => 'OR',
+        array (
         'key'   => 'vibe_manager',
-        'value' => '1',
-        'compare' => 'NOT'
+        'compare' => 'NOT EXISTS',
+        ),
+        array (
+            'key'   => 'vibe_manager',
+            'compare'   => '=',
+            'value' => '0',
+        ),
     );
     $query->set( 'meta_query', $meta_query );
   } elseif( !is_admin() && is_search() ) {

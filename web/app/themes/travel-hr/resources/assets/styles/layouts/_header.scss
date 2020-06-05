@@ -51,65 +51,13 @@
 .home,
 .archive,
 .single {
-  header {
-    .container-fluid {
-      display: flex;
-      flex-direction: row;
+  .page-header {
+    margin: 3rem 0;
 
-      &.temp-padding {
-        padding: 20px;
-      }
-
-      .hr-nav {
-        flex: 1 0 50%;
-        display: flex;
-        flex-direction: column;
-
-        @include media-breakpoint-up(md) {
-          flex-direction: row;
-        }
-
-        img {
-          width: 100px;
-        }
-      }
-
-      .nav-primary {
-        flex: 1 0 50%;
-        display: flex;
-        justify-content: flex-end;
-
-        .menu-home-menu-container {
-          position: relative;
-          width: 100%;
-
-          .nav {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-
-            .menu-item {
-              border-right: $border-color solid 1px;
-              margin: 0.5rem 0;
-
-              &:last-child {
-                border: none;
-              }
-
-              a {
-                padding: 0 1rem;
-                text-transform: uppercase;
-                font-weight: $font-weight-bold;
-
-                &:hover {
-                  text-decoration: $link-hover-decoration;
-                }
-              }
-            }
-          }
-        }
-      }
+    h1 {
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
     }
   }
 }

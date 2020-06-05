@@ -19,6 +19,10 @@ class App extends Controller
             }
             return __('Latest Posts', 'sage');
         }
+        if(is_post_type_archive('city')) {
+            return __('Area Guides', 'hr__domain');
+        }
+
         if (is_archive()) {
             return get_the_archive_title();
         }
