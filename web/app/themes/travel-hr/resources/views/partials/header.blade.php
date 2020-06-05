@@ -8,7 +8,7 @@
           <span class="fa fa-bars fa-2x"></span>
         </button>
         @if (has_nav_menu('home_navigation'))
-          {!! wp_nav_menu(['theme_location' => 'home_navigation', 'menu_class' => 'nav collapse navbar-collapse', 'id' => 'navbarToggler']) !!}
+          {!! wp_nav_menu(['theme_location' => 'home_navigation', 'container_class' => 'nav collapse navbar-collapse', 'id' => 'navbarToggler']) !!}
         @endif
       </nav>
     </div>
