@@ -20,9 +20,16 @@ class FrontPage extends Controller
                 'post_type' => 'artist',
                 'posts_per_page' => 4,
                 'meta_query' => array(
+                    'relation' => 'OR',
+                    array (
                     'key'   => 'vibe_manager',
-                    'value' => '1',
-                    'compare' => 'NOT'
+                    'compare' => 'NOT EXISTS',
+                    ),
+                    array (
+                        'key'   => 'vibe_manager',
+                        'compare'   => '=',
+                        'value' => '0',
+                    ),
                 )
             );
 
