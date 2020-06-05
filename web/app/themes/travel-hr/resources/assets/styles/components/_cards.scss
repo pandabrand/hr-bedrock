@@ -12,7 +12,7 @@ $card__border__color:  $white;
   box-sizing: border-box;
   justify-content: start;
   transition: 0.2s;
-  box-shadow: 0.25rem 0 1rem rgba(#2b2b2b, 0.5);
+  box-shadow: 0.25rem 0.25rem 1rem rgba(43, 43, 43, 0.2);
 
   &:hover {
     transform: translateY(-10px);
@@ -60,7 +60,9 @@ $card__border__color:  $white;
 
     .card__copy {
       height: 100%;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       &:last-child {
         margin-bottom: 1rem;
@@ -79,6 +81,10 @@ $card__border__color:  $white;
       .card__text {
         font-size: 0.75rem;
         line-height: 1rem;
+
+        iframe {
+          display: none;
+        }
       }
 
       .card_reccomendations {
@@ -108,7 +114,7 @@ $card__border__color:  $white;
       }
 
       .card__link {
-        @extend .pr-4;
+        text-transform: uppercase;
       }
     }
   }

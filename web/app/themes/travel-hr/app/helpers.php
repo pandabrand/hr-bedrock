@@ -269,7 +269,7 @@ function get_category_type_title($post = null) {
     return $title;
   }
 
-  function get_card_excerpt($post = null, $length = '60') {
+  function get_card_excerpt($post = null, $length = '260') {
     if ( empty( $post )  ) {
       global $post;
     } else {
@@ -280,7 +280,6 @@ function get_category_type_title($post = null) {
     //for some reason &hellip; keeps showing up on empty excerpts, get the post content
     if ($excerpt === '&hellip;') {
       $excerpt = wp_strip_all_tags( $post->post_content );
-      write_log($excerpt);
     }
 
     $line=$excerpt;
