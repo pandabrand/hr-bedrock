@@ -32,7 +32,7 @@ class Archive extends Controller
         wp_localize_script( 'loadmore_js', 'hr_loadmore_params', [
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'posts' => json_encode( $wp_query->query_vars ),
-            'current_page' => get_query_var( 'paged' ) ?? 1,
+            'current_page' =>  get_query_var( 'page', 1 ),
             'max_page' => $wp_query->max_num_pages
             ]
         );
@@ -53,9 +53,11 @@ class Archive extends Controller
     public static function hrLoadMoreAjaxHandler()
     {
         $args = json_decode( stripslashes( $_POST['query'] ), true );
-        $args['paged'] = $args['paged'] + 1;
+        $args['paged'] = $_POST['page'] + 1;
         $args['post_status'] = 'publish';
         $ajaxposts = new \WP_Query( $args );
+
+        \App\write_log($args);
 
         $GLOBALS['wp_query'] = $ajaxposts;
 
