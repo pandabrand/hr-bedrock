@@ -16,6 +16,9 @@
     "map_data": [
       "./scripts/util/mapData.js"
     ],
+    "load_more": [
+      "./scripts/util/loadMore.js"
+    ],
     "ccAutocomplete": [
       "./scripts/util/ccAutocomplete.js"
     ],

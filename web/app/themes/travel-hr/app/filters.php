@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Controllers\Archive;
+
 /**
  * Add <body> classes
  */
@@ -110,12 +112,10 @@ add_action( 'pre_get_posts', function ( $query ) {
     }
   } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['city', 'artist'] ) ) {
     $query->set( 'posts_per_page', 16 );
+    $query->set( 'paged', 1 );
+    $query->set( 'nopaging', false );
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'asc' );
-//   } elseif( !is_admin() && $query->is_main_query() && $query->is_home() ) {
-//     $idObj = get_category_by_slug('reserved');
-//     $id = $idObj->term_id;
-//     $query->set('category__not_in', [$id]);
   } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['artist'] ) ) {
     $meta_query = array(
         'relation' => 'OR',
@@ -156,3 +156,7 @@ add_filter( 'get_the_archive_title', function ($title) {
 
     return $title;
 });
+
+add_action('wp_ajax_loadmore', 'App\Controllers\Archive::hrLoadMoreAjaxHandler');
+add_action('wp_ajax_nopriv_loadmore', 'App\Controllers\Archive::hrLoadMoreAjaxHandler');
+add_action('wp_enqueue_scripts', 'App\Controllers\Archive::hrLoadMoreAjaxScripts', 100000);

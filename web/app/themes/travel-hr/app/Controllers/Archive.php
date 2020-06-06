@@ -24,40 +24,50 @@ class Archive extends Controller
         );
     }
 
-    public static function getAlphaPagination()
+    public static function hrLoadMoreAjaxScripts()
     {
-        $taxonomy = 'glossary';
-        $query_obj = get_queried_object();
-        $alpha_archive_name = 'hr_'.$query_obj->name.'_archive_alphabet';
-        // save the terms that have posts in an array as a transient
-        if ( false === ( $alphabet = get_transient( $alpha_archive_name ) ) ) {
-            // It wasn't there, so regenerate the data and save the transient
-            $terms = get_terms($taxonomy);
+        global $wp_query;
+        wp_register_script('loadmore_js', \App\asset_path('scripts/load_more.js'), array('jquery'), null, true);
 
-            $alphabet = array();
-            if($terms){
-                foreach ($terms as $term){
-                    $alphabet[] = $term->slug;
-                }
-            }
-            set_transient( $alpha_archive_name, $alphabet );
+        wp_localize_script( 'loadmore_js', 'hr_loadmore_params', [
+            'ajaxurl' => admin_url( 'admin-ajax.php' ),
+            'posts' => json_encode( $wp_query->query_vars ),
+            'current_page' => get_query_var( 'paged' ) ?? 1,
+            'max_page' => $wp_query->max_num_pages
+            ]
+        );
+
+        wp_enqueue_script('loadmore_js');
+    }
+
+    public static function loadMorePagination()
+    {
+        global $wp_query;
+
+        if (  $wp_query->max_num_pages > 1 )
+        {
+            echo '<div><button class="btn btn-primary hr-loadmore">Load More</button></div>';
         }
-        // write_log($alphabet);
+    }
 
-        print '<div id="archive-menu" class="row cc-row archive__navigation-row space-around">';
+    public static function hrLoadMoreAjaxHandler()
+    {
+        $args = json_decode( stripslashes( $_POST['query'] ), true );
+        $args['paged'] = $args['paged'] + 1;
+        $args['post_status'] = 'publish';
+        $ajaxposts = new \WP_Query( $args );
 
-            foreach(range('a', 'z') as $i) :
+        $GLOBALS['wp_query'] = $ajaxposts;
 
-                $current = ($i == get_query_var($taxonomy)) ? "current-menu-item" : "menu-item";
+        if( $ajaxposts->have_posts() )
+        {
+            while( $ajaxposts->have_posts() )
+            {
+                $ajaxposts->the_post();
+                echo \App\template('partials.content-'.get_post_type());
+            }
 
-                if (in_array( $i, $alphabet )){
-                    printf( '<a class="page-numbers %s" href="%s">%s</a>', $current, get_term_link( $i, $taxonomy ), strtoupper($i) );
-                } else {
-                    printf( '<div class="page-numbers %s">%s</div>', $current, strtoupper($i) );
-                }
-
-            endforeach;
-
-        print '</div>';
+        }
+        wp_die();
     }
 }

@@ -11,6 +11,38 @@ import hrh_hotels from '../util/hrhData';
 
 export default {
   init: function() {
+
+    jQuery('.hr-loadmore').click(() => {
+      var data = {
+        'action': 'loadmore',
+        'query': hr_loadmore_params.posts,
+        'page': hr_loadmore_params.current_page,
+      };
+
+      jQuery.ajax({
+        url: hr_loadmore_params.ajaxurl,
+        data: data,
+        method: 'POST',
+        beforeSend: () => jQuery('.hr-loadmore').text('Loading...'),
+      })
+      .done( data => {
+        if( data ) {
+          jQuery('.hr-loadmore').text('Load More').closest('.col-sm-12').before(data);
+          hr_loadmore_params.current_page++;
+          if(hr_loadmore_params.current_page == hr_loadmore_params.max_page) {
+            jQuery('.hr-loadmore').remove();
+          }
+        } else {
+          jQuery('.hr-loadmore').remove();
+        }
+      })
+      .fail( err => {
+        jQuery('.hr-loadmore').remove();
+        console.error(err);
+      });
+    });
+
+
     jQuery('.dropdown-menu').click(function(e) {
       e.stopPropagation(); //This will prevent the event from bubbling up and close the dropdown when you type/click on text boxes.
     });

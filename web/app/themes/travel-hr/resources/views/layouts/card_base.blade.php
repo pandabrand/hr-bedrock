@@ -21,6 +21,6 @@
     <div class="card__text">
       {!! App\get_card_excerpt() !!}
     </div>
-    <div class="card__link"><a href="{!! the_permalink() !!}" class="card__link">Explore City <span class="fa fa-chevron-right"></span></a></div>
+    <div class="card__link"><a href="{!! the_permalink() !!}" class="card__link">Explore <span class="fa fa-chevron-right"></span></a></div>
   </div>
 </div>

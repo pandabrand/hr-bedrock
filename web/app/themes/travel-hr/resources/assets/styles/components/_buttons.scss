@@ -4,21 +4,21 @@
 
 .btn-primary {
   background: $white;
-  color: $black;
+  color: #2b2b2b;
 
   &:hover {
     background: invert($color: $white);
-    color: invert($color: $black);
+    color: invert($color: #2b2b2b);
   }
 
   &.inverse {
-    background: $black;
+    background: #2b2b2b;
     color: $white;
     border: $white 1px solid;
 
     &:hover {
       background: invert($color: $white);
-      color: invert($color: $black);
+      color: invert($color: #2b2b2b);
     }
   }
 }

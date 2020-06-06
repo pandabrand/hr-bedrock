@@ -17,7 +17,8 @@
       @endwhile
 
       <div class="col-sm-12">
-        <div class="row cc-row archive__navigation-row space-around">
+        <div class="row cc-row archive__navigation-row space-around mb-4">
+          {!! Archive::loadMorePagination() !!}
         </div>
       </div>
     </div>
