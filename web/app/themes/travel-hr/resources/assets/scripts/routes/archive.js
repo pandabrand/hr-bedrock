@@ -3,8 +3,8 @@
 import 'waypoints/lib/jquery.waypoints';
 import _ from 'underscore/underscore';
 import L from 'leaflet/dist/leaflet';
-import map_icon from '../../images/map_icon.png';
-import map_icon_2x from '../../images/map_icon@2x.png';
+import map_icon from '../../images/map_icon-hr.png';
+import map_icon_2x from '../../images/map_icon-hr@2x.png';
 import hrh_icon from '../../images/hrh-map_icon.png';
 import hrh_icon_2x from '../../images/hrh-map_icon@2x.png';
 import hrh_hotels from '../util/hrhData';
@@ -104,7 +104,7 @@ export default {
       for(var x = 0; x < hrh_hotels.hotels.length; x++) {
         var hotel = hrh_hotels.hotels[x];
         var hotel_place = L.marker([hotel.lat, hotel.lng],{icon:hrhIcon, riseOnHover:true, riseOffset: 3000});
-        hotel_place.bindPopup('<div class=" cc-marker__popup strong">'+hotel.name+'</div>');
+        hotel_place.bindPopup('<div class="cc-marker__popup font-weight-bold">'+hotel.name+'</div>');
         hotel_markers.addLayer(hotel_place);
         hotel.marker_id = hotel_markers.getLayerId(hotel_place);
         jQuery('#'+hotel.location_id).attr('data-cc-marker', hotel.marker_id);
@@ -116,7 +116,7 @@ export default {
       for(x = 0; x < parsed_map_vars.locations.length; x++) {
         var feature = parsed_map_vars.locations[x];
         var marker_place = L.marker([feature.coords.lat, feature.coords.lng],{icon:ccIcon, riseOnHover:true, riseOffset: 3000});
-        marker_place.bindPopup('<div class=" cc-marker__popup strong">'+feature.title+'</div>');
+        marker_place.bindPopup('<div class="cc-marker__popup"><div class="font-weight-bold">'+feature.title+'</div><div>'+feature.address +'</div><div><a href="'+feature.directions+'" rel="external" target="_blank" class="text-capitalize"><i class="fa fa-map"></i> directions</a></div></div>');
         markers.addLayer(marker_place);
         feature.marker_id = markers.getLayerId(marker_place);
         jQuery('#'+feature.location_id).attr('data-cc-marker', feature.marker_id);

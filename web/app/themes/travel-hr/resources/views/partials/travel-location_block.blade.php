@@ -46,26 +46,24 @@
                 </div>
               @endif
               <div class="card__links mt-auto d-flex flex-row justify-content-start">
-                <div class="card__link">
+                <div class="card__link travel-card__link mr-4">
                   <a href="{!! App::get_website_for_location($location) !!}" rel="external" target="_blank"><i class="fa fa-window-maximize"></i> website</a>
                 </div>
-                <div class="card__link">
+                <div class="card__link travel-card__link mr-4">
                   <a href="https://www.google.com/maps/dir/?api=1&destination={!! Single::latLng( $location )['lat'],',',Single::latLng( $location )['lng'] !!}" rel="external" target="_blank">
                     <i class="fa fa-map"></i> directions
                   </a>
                 </div>
                 @if( !empty( Single::instagram_url( $location ) ) )
-                <div class="card__link">
+                <div class="card__link travel-card__link mr-4">
                   <a href="{!! Single::instagram_url( $location ) !!}" rel="external" target="_blank">
                     <i class="fa fa-instagram"></i> instagram
                   </a>
                 </div>
                 @endif
               </div>
-
             </div>
           </div>
-
     </div>
   </div>
 </div>

@@ -3,6 +3,7 @@
 namespace App;
 
 use Roots\Sage\Assets;
+use App\Controllers\Single;
 
 add_action('wp_enqueue_scripts', function () {
   if( is_single() || is_tax( 'location_types' ) ):
@@ -16,7 +17,8 @@ add_action('wp_enqueue_scripts', function () {
             'location_id' => $location->ID,
             'title' => get_the_title($location->ID),
             'website' => get_field('website', $location->ID),
-            'coords' => get_field('address', $location->ID)
+            'coords' => get_field('address', $location->ID),
+            'address' => Single::address($location),
           );
           $json_locations['locations'][] = $location_output;
         endwhile;
@@ -41,11 +43,14 @@ add_action('wp_enqueue_scripts', function () {
       ));
       if( !empty( $locations ) ) {
         foreach($locations as $location) {
+            $lanlng = Single::latLng( $location );
           $location_output = array(
             'location_id' => $location->ID,
             'title' => get_the_title($location->ID),
             'website' => get_field('website', $location->ID),
-            'coords' => get_field('address', $location->ID)
+            'coords' => get_field('address', $location->ID),
+            'address' => Single::address($location),
+            'directions' => 'https://www.google.com/maps/dir/?api=1&destination='.$lanlng['lat'].','.$lanlng['lng'],
           );
           $json_locations['locations'][] = $location_output;
         }
@@ -70,11 +75,14 @@ add_action('wp_enqueue_scripts', function () {
 
         if( !empty( $locations ) ) {
         foreach($locations as $location) {
+            $lanlng = Single::latLng( $location );
           $location_output = array(
             'location_id' => $location->ID,
             'title' => get_the_title($location->ID),
             'website' => get_field('website', $location->ID),
-            'coords' => get_field('address', $location->ID)
+            'coords' => get_field('address', $location->ID),
+            'address' => Single::address($location),
+            'directions' => 'https://www.google.com/maps/dir/?api=1&destination='.$lanlng['lat'].','.$lanlng['lng'],
           );
           $json_locations['locations'][] = $location_output;
         }

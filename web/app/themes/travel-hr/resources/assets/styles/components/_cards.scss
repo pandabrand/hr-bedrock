@@ -115,6 +115,10 @@ $card__border__color:  $white;
 
       .card__link {
         text-transform: uppercase;
+
+        &.travel-card__link {
+          text-transform: capitalize;
+        }
       }
     }
   }
@@ -190,9 +194,14 @@ $card__border__color:  $white;
 
     &.card__2-1-travel {
       height: auto;
+      margin: 0 1rem;
 
       .card__image {
         height: 205px;
+
+        .card__category-line {
+          height: 170px;
+        }
       }
 
       .card__body {
@@ -202,6 +211,13 @@ $card__border__color:  $white;
         position: relative;
         bottom: auto;
         right: auto;
+        padding: 0.75rem 2.75rem;
+
+        .card__copy {
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
 
       .card__category-block {
