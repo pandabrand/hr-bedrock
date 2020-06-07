@@ -143,7 +143,7 @@ function display_sidebar()
  */
 function cc_background_image_filter()
 {
-    return 'linear-gradient(-180deg, rgb(0,0,0) 0%, rgba(0,0,0,0.00) 40%), linear-gradient(rgba(109,114,163,0.80) 0%, rgba(109,114,163,0.80) 100%),linear-gradient(rgba(55,23,34,0.10) 0%, rgba(55,23,34,0.10) 100%)';
+    return 'linear-gradient(-180deg, rgb(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 100%)';
 }
 
 function get_post_icon_class($post = null)

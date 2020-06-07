@@ -154,6 +154,30 @@
   }
 }
 
+.single-city {
+  .map-summary {
+    margin-top: 4rem;
+  }
+
+  .map-wrapper {
+    .billboard {
+      margin-left: -15px;
+
+      &__image {
+        width: 100vw;
+      }
+
+      &-overlay {
+        height: 100%;
+      }
+
+      &__post-type-info {
+        color: $white;
+      }
+    }
+  }
+}
+
 .travel {
   &.travel__detail__map__row {
     height: 90vh;
