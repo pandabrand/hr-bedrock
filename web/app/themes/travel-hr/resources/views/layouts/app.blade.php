@@ -22,6 +22,11 @@
         @include('partials.map')
         <div class="additional-content">
           <div class="container">
+            <div class="row mb-4">
+              <div class="col-12">
+                <h2 class="text-center text-uppercase">More to explore</h2>
+              </div>
+            </div>
             <div class="row">
               @foreach($additional_posts as $additional_post)
                 @include('partials.additional', $additional_post)
