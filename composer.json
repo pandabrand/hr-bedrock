@@ -80,7 +80,8 @@
     "wpackagist-plugin/official-mailerlite-sign-up-forms": "~1.2",
     "wpackagist-plugin/ewww-image-optimizer": "dev-trunk",
     "wpackagist-plugin/jetpack":"8.1",
-    "wpackagist-plugin/classic-editor":"1.5"
+    "wpackagist-plugin/classic-editor":"1.5",
+    "wpackagist-plugin/post-type-switcher":"dev-trunk"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.4.2",
