@@ -296,11 +296,11 @@
 .map-stuck {
   @media (max-width: 768px) {
     position: fixed;
-    top: 2.875rem;
-    width: 100%;
+    top: 0;
+    left: 0;
+    width: 98vw;
     margin: 0;
     padding: 0;
-    margin-left: -1.875rem;
 
     &.travel__detail__map__map-wrapper {
       z-index: 25;
@@ -308,7 +308,7 @@
   }
 
   @media (max-width: 480px) {
-    top: 5.375rem;
+    width: 96vw;
   }
 }
 
