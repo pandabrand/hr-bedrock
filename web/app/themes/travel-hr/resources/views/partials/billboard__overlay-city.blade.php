@@ -6,7 +6,9 @@
                 <div class="page-header">
                   <h1>{!! get_the_title() !!}</h1>
                 </div>
-                @include('partials.artists-row', $artists)
+                <div class="d-none d-md-block">
+                  @include('partials.artists-row', $artists)
+                </div>
               </div>
             </div>
           </div>
