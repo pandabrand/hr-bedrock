@@ -72,11 +72,10 @@
 
     &__image {
       height: 250px;
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
 
       @include media-breakpoint-up(md) {
-        background-size: cover;
         height: 720px;
       }
     }
