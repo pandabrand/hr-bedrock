@@ -46,6 +46,10 @@ class App extends Controller
                 $title = 'Artists';
                 break;
 
+            case 'vibe-manager':
+                $title = 'Vibe Managers';
+                break;
+
             default:
                 $title = 'Categories';
                 break;

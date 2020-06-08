@@ -9,7 +9,7 @@ class Single extends Controller
 {
     public function locations()
     {
-        if( get_post_type() == 'artist' )
+        if( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' )
         {
             $locations = get_field('artists_locations');
         }
@@ -105,7 +105,7 @@ class Single extends Controller
 
     public static function location_for_array( $location_arr )
     {
-        return ( get_post_type() == 'artist') ? $location_arr['location'][0] : $location_arr;
+        return ( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' ) ? $location_arr['location'][0] : $location_arr;
     }
 
     public static function address( $location = null )
