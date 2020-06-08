@@ -204,6 +204,8 @@ function get_category_type_title($post = null) {
       $category_type = 'travel guide';
     } elseif ( $post->post_type == 'artist' ) {
       $category_type = 'artist guide';
+    } elseif ( $post->post_type == 'vibe-manager' ) {
+      $category_type = 'vibe manager';
     } elseif ($post->post_type == 'location') {
       $location_terms = get_the_terms( $post, 'location_types' );
       $category_type = (!empty($location_terms)) ? $location_terms[0]->name : '';
