@@ -10,7 +10,7 @@
                       {!! App::title_for_type( get_post_type() ) !!} guide:
                     </div>
                     <div class="billboard__category-block__category-info">
-                        @if( get_post_type() == 'artist' )
+                        @if( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' )
                           {!! get_field('artist_city')[0]->post_title !!}
                         @elseif ( get_post_type() == 'city' )
                           {!! get_the_title() !!}
@@ -23,7 +23,7 @@
               </div>
               <div class="billboard__category">
                 <div class="billboard__title h1 ml-3">
-                  @if ( get_post_type() == 'artist' || get_post_type() == 'city' )
+                  @if ( get_post_type() == 'artist' || get_post_type() == 'city' || get_post_type() == 'vibe-manager' )
                     {!! get_the_title() !!}
                   @else
                     The Best {!! Archive::getTermName() !!}s
