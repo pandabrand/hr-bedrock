@@ -157,7 +157,7 @@ function get_post_icon_class($post = null)
     $icon_class = '';
     if( !empty( $post ) )
     {
-        if($post->post_type == 'artist' || $post->post_type == 'city') {
+        if($post->post_type == 'artist' || $post->post_type == 'city'|| $post->post_type == 'vibe-manager') {
             $icon_class = 'icon icon-travel-white';
         } else {
             $post_categories = wp_get_post_categories( $post->ID );
@@ -233,6 +233,10 @@ function get_category_type_title($post = null) {
       $subject = $post->post_title;
     }
     elseif ($post->post_type == 'artist') {
+      $artist_city = get_field('artist_city', $post->ID)[0];
+      $subject = $artist_city->post_title;
+    }
+    elseif ($post->post_type == 'vibe-manager') {
       $artist_city = get_field('artist_city', $post->ID)[0];
       $subject = $artist_city->post_title;
     }

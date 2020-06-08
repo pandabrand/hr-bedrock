@@ -57,8 +57,6 @@ class Archive extends Controller
         $args['post_status'] = 'publish';
         $ajaxposts = new \WP_Query( $args );
 
-        \App\write_log($args);
-
         $GLOBALS['wp_query'] = $ajaxposts;
 
         if( $ajaxposts->have_posts() )
