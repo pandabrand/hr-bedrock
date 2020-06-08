@@ -110,26 +110,12 @@ add_action( 'pre_get_posts', function ( $query ) {
       );
       $query->set('meta_query', $meta_query);
     }
-  } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['city', 'artist'] ) ) {
+  } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['city', 'artist', 'vibe-manager'] ) ) {
     $query->set( 'posts_per_page', 16 );
     $query->set( 'paged', 1 );
     $query->set( 'nopaging', false );
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'asc' );
-  } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['artist'] ) ) {
-    $meta_query = array(
-        'relation' => 'OR',
-        array (
-        'key'   => 'vibe_manager',
-        'compare' => 'NOT EXISTS',
-        ),
-        array (
-            'key'   => 'vibe_manager',
-            'compare'   => '=',
-            'value' => '0',
-        ),
-    );
-    $query->set( 'meta_query', $meta_query );
   } elseif( !is_admin() && is_search() ) {
     $idObj = get_category_by_slug('reserved');
     $id = $idObj->term_id;

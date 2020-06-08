@@ -9,7 +9,7 @@ add_action('wp_enqueue_scripts', function () {
   if( is_single() || is_tax( 'location_types' ) ):
     global $post;
     $json_locations = array('locations' => array());
-    if( is_single() && get_post_type($post->ID) == 'artist' ) {
+    if( is_single() && (get_post_type($post->ID) == 'artist' || get_post_type($post->ID) == 'vibe-manager') ) {
       if( have_rows( 'artists_locations', $post->ID ) ) {
         while( have_rows( 'artists_locations', $post->ID ) ): the_row();
           $location = get_sub_field('location')[0];
