@@ -292,7 +292,7 @@
                 "source": "https://github.com/pandabrand/hr-plugin/tree/master",
                 "issues": "https://github.com/pandabrand/hr-plugin/issues"
             },
-            "time": "2020-06-08T02:13:48+00:00"
+            "time": "2020-06-09T23:04:23+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -734,15 +734,15 @@
         },
         {
             "name": "wpackagist-plugin/enable-media-replace",
-            "version": "3.3.12",
+            "version": "3.4.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/enable-media-replace/",
-                "reference": "tags/3.3.12"
+                "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/enable-media-replace.3.3.12.zip"
+                "url": "https://downloads.wordpress.org/plugin/enable-media-replace.zip?timestamp=1591708187"
             },
             "require": {
                 "composer/installers": "~1.0"

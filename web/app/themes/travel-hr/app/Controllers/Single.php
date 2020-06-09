@@ -30,6 +30,22 @@ class Single extends Controller
         return $locations;
     }
 
+    public static function get_city_background_image( $post = null )
+    {
+        $id = ($location == null) ? get_the_ID() : $post->ID;
+
+        if($image_id = get_field( 'background_image', $id ) )
+        {
+            $image_url = wp_get_attachment_image_url($image_id, 'full');
+        }
+        else
+        {
+            $image_url = get_the_post_thumbnail_url($id, 'full');
+        }
+
+        return $image_url;
+    }
+
     public static function location_city_object( $location = null )
     {
         $id = ($location == null) ? get_the_ID() : $location->ID;
@@ -156,12 +172,49 @@ class Single extends Controller
 
     public function artists()
     {
+
         // $artists = wp_cache_get( 'artists_five' );
         if( true ) //false === $artists )
         {
+            $vibe_managers = array();
+            $vibe_args = array(
+                'post_type' => 'vibe-manager',
+                'posts_per_page' => 1,
+                'meta_query' => array(
+                    array (
+                        'key'   => 'artist_city',
+                        'compare'   => 'LIKE',
+                        'value' => '"' . get_the_ID() . '"',
+                    ),
+                )
+            );
+
+            $vibe_query = new \WP_Query( $vibe_args );
+
+            if( $vibe_query->post_count > 0 )
+            {
+                foreach( $vibe_query->posts as $post )
+                {
+                    $summary = wp_trim_words( $post->post_content, '35', '...' );
+                    $vibe_managers[] = array(
+                        'image' => wp_get_attachment_image(
+                            get_post_thumbnail_id( $post->ID ),
+                            'medium',
+                            false,
+                            array( 'class' => 'img-fluid' )
+                        ),
+                        'name' => $post->post_title,
+                        'link' => get_the_permalink( $post->ID ),
+                        'summary' => $summary,
+                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 )
+                    );
+                }
+            }
+            $post_per_page = count($vibe_managers) > 0 ? 3 : 4;
+
             $args = array(
                 'post_type' => 'artist',
-                'posts_per_page' => 4,
+                'posts_per_page' => $post_per_page,
                 'meta_query' => array(
                     array (
                         'key'   => 'artist_city',
@@ -194,6 +247,6 @@ class Single extends Controller
             }
             // wp_cache_set( 'artists_five', $artists );
         }
-        return $artists;
+        return array_merge($artists, $vibe_managers);
     }
 }
