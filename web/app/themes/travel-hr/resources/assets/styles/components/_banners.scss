@@ -1,0 +1,45 @@
+.hr-banner {
+  margin: 2rem -15px;
+
+  &.gray {
+    background-color: $light-gray;
+  }
+
+  .overlay {
+    &.bottom {
+      justify-content: flex-end;
+      align-items: center;
+
+      .overlay-bottom-row {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        color: white;
+
+        @include media-breakpoint-up(md) {
+          flex-direction: row;
+          padding: 0 3rem;
+          align-items: center;
+        }
+
+        .btn {
+          color: $white;
+        }
+
+        h3,
+        .btn {
+          white-space: nowrap;
+          text-transform: uppercase;
+        }
+
+        .copy {
+          padding: 0 1rem;
+
+          @include media-breakpoint-up(md) {
+            padding: 0 4rem;
+          }
+        }
+      }
+    }
+  }
+}

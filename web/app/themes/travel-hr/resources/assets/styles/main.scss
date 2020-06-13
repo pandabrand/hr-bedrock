@@ -10,21 +10,19 @@
  * @see https://github.com/webpack-contrib/sass-loader#imports
  */
 // @import "~some-node-module";
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap");
-
-$fa-font-path: "~font-awesome/fonts/";
-
-@import "~font-awesome/scss/font-awesome";
+@import "common/fonts";
 
 /** Import theme styles */
 @import "common/global";
 @import "components/artists";
+@import "components/banners";
 @import "components/buttons";
 @import "components/cards";
 @import "components/comments";
 @import "components/forms";
 @import "components/navigation";
 @import "components/slideout";
+@import "components/typography";
 @import "components/wp-classes";
 @import "layouts/header";
 @import "layouts/sidebar";

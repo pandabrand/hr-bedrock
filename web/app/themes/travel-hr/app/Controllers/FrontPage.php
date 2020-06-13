@@ -50,12 +50,32 @@ class FrontPage extends Controller
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),
                         'summary' => $summary,
-                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 )
+                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 ),
+                        'full_post' => $post
                     );
                 }
             }
             // wp_cache_set( 'artists_five', $artists );
         }
         return $artists;
+    }
+
+    public function banner_content() {
+        global $post;
+        $banner_content = array();
+        if( $banner_image = get_field('banner_image', $post->ID) )
+        {
+            $banner_content['image'] =  wp_get_attachment_image_url(
+                $banner_image,
+                'front-page-image'
+            );
+        }
+
+        $banner_content['title'] = get_field('banner_title', $post->ID) ?? '';
+        $banner_content['content'] = get_field('banner_copy', $post->ID) ?? '';
+        $banner_content['link_text'] = get_field('banner_link_text', $post->ID) ?? '';
+        $banner_content['link'] = get_field('banner_link', $post->ID) ?? '';
+
+        return $banner_content;
     }
 }
