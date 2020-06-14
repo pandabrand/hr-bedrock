@@ -70,7 +70,7 @@
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   z-index: 56;
   background-color: $color__background;
-  color: $black;
+  color: $color__text-main;
 
   &.open {
     right: 0;

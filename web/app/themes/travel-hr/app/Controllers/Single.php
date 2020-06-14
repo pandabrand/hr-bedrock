@@ -30,17 +30,18 @@ class Single extends Controller
         return $locations;
     }
 
-    public static function get_city_background_image( $post = null )
+    public static function get_city_background_image( $location = null )
     {
-        $id = ($location == null) ? get_the_ID() : $post->ID;
+        $id = ($location == null) ? get_the_ID() : $location->ID;
+        $size = ( 'city' == \get_post_type( $id ) ) ? 'front-page-image' : 'full';
 
         if($image_id = get_field( 'background_image', $id ) )
         {
-            $image_url = wp_get_attachment_image_url($image_id, 'full');
+            $image_url = wp_get_attachment_image_url($image_id, $size);
         }
         else
         {
-            $image_url = get_the_post_thumbnail_url($id, 'full');
+            $image_url = get_the_post_thumbnail_url($id, $size);
         }
 
         return $image_url;
@@ -206,7 +207,8 @@ class Single extends Controller
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),
                         'summary' => $summary,
-                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 )
+                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 ),
+                        'full_post' => $post
                     );
                 }
             }
@@ -241,7 +243,8 @@ class Single extends Controller
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),
                         'summary' => $summary,
-                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 )
+                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 ),
+                        'full_post' => $post
                     );
                 }
             }

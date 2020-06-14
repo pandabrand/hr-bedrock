@@ -1,6 +1,11 @@
 .map-wrapper {
   background: #f3f3f3;
-  color: $black;
+  color: $color__text-main;
+  padding-bottom: 2rem;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 5rem;
+  }
 
   .menu {
     display: flex;
@@ -142,11 +147,10 @@
 .map-summary {
   padding: 2rem 1.25rem;
   margin-top: -6rem;
-  background: $white;
   text-align: center;
   font-size: 1rem;
   line-height: 1.25rem;
-  color: #666;
+  color: $black;
 
   @include media-breakpoint-up(md) {
     padding: 2rem 4rem;
@@ -156,6 +160,12 @@
 .single-city {
   .map-summary {
     margin-top: 4rem;
+
+    h2 {
+      &:not(.palmaton) {
+        font-weight: 700;
+      }
+    }
   }
 
   .map-wrapper {
@@ -203,6 +213,7 @@
       overflow-y: auto;
       overflow-x: hidden;
       box-shadow: inset 1px 2px 1rem rgba($black, 0.21);
+      background-color: rgb(201, 211, 212);
 
       @media (max-width: 768px) {
         height: auto;
@@ -297,7 +308,7 @@ $dark-brown: #9f8871;
 
 .additional-content {
   padding-top: 2rem;
-  background: #f3f3f3;
+  background: $white;
 }
 
 .leaflet-popup {

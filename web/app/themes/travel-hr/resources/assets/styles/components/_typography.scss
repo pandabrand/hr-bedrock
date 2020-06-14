@@ -1,8 +1,16 @@
 .palmaton {
   font-family: $palmaton;
+  text-transform: capitalize;
+}
+
+h1.palmaton {
+  text-transform: capitalize;
+  font-size: $h1-font-size * 2;
+  line-height: $h1-font-size / 2;
 }
 
 h2.palmaton {
+  text-transform: capitalize;
   font-size: $h2-font-size * 2;
   line-height: $h2-font-size / 2;
 }

@@ -62,9 +62,12 @@
 .vibe-manager {
   .page-header {
     h1 {
+      &:not(.palmaton) {
+        text-transform: uppercase;
+      }
+
       font-weight: 700;
       text-align: center;
-      text-transform: uppercase;
     }
   }
 }

@@ -22,9 +22,15 @@
         @include('partials.map')
         <div class="additional-content">
           <div class="container">
-            <div class="row mb-4">
-              <div class="col-12">
-                <h2 class="text-center text-uppercase">More to explore</h2>
+            <div class="row my-5">
+              <div class="col-12 text-center">
+                @if( 'city' == get_post_type() )
+                  <h2 class="palmaton">Explore</h2>
+                  <h2 class="text-uppercase font-weight-bold">Other Destinations</h2>
+                  @else
+                  <h2 class="palmaton">Discover</h2>
+                  <h2 class="text-uppercase font-weight-bold">Other Artists</h2>
+                @endif
               </div>
             </div>
             <div class="row">
