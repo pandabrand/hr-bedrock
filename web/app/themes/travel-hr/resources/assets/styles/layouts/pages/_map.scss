@@ -83,6 +83,12 @@
       @include media-breakpoint-up(md) {
         height: 720px;
       }
+
+      &.city {
+        @include media-breakpoint-up(md) {
+          height: 500px;
+        }
+      }
     }
   }
 

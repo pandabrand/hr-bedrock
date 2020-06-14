@@ -1,7 +1,7 @@
 <div class="billboard-overlay">
   <div class="container">
     <div class="row no-gutters">
-      <div class="col-12">
+      <div class="col-12 d-flex align-items-center">
         <div class="billboard__post-type-info">
           <div class="page-header">
             <h1 class="palmaton">Explore</h1>
