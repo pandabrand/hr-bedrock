@@ -4,7 +4,7 @@
     <div class="header">
       <h2 class="palmaton">Introducing</h2>
       <h2 class="font-weight-bold text-uppercase">Soundtracks</h2>
-      @php the_content() @endphp
+      <div class="d-none d-md-block">  @php the_content() @endphp </div>
     </div>
   </div>
 </div>

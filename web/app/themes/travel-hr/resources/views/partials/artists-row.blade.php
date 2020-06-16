@@ -3,8 +3,10 @@
     <div class="row">
       <div class="d-flex flex-column center mx-auto my-5">
         @if( is_front_page( ) )
-          <h2 class="palmaton text-center">Choose</h2>
-          <h2 class="text-center text-uppercase font-weight-bold">Your Music Concierge</h2>
+          <div class="two-line-header">
+            <h2 class="palmaton text-center">Choose</h2>
+            <h2 class="text-center text-uppercase font-weight-bold">Your Music Concierge</h2>
+          </div>
           <a href="/city" class="btn btn-secondary text-uppercase mx-auto">See All Guides</a>
         @elseif( 'city' == get_post_type() )
           <h2 class="palmaton text-center">Area Guides</h2>

@@ -1,7 +1,7 @@
 .banner .navbar-nav a {
   @extend .nav-link;
 
-  padding: 27px 1rem;
+  padding: 15px 1rem;
   text-transform: uppercase;
   color: $white;
 }
@@ -29,7 +29,7 @@
 
   .brand {
     display: block;
-    width: 100px;
+    width: 65px;
   }
 
   .navbar-collapse {

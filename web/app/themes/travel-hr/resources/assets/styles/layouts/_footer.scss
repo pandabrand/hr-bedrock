@@ -17,13 +17,22 @@ footer {
 
     .menu-footer-one-container {
       ul {
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
+
+        @include media-breakpoint-up(md) {
+          flex-direction: row;
+        }
 
         .menu-item {
           padding: 0 1rem;
-          border-right: 1px solid $footer_color;
+          border-right: none;
+
+          @include media-breakpoint-up(md) {
+            border-right: 1px solid $footer_color;
+          }
 
           &:last-child {
             border-right: none;

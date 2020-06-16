@@ -39,12 +39,21 @@
       text-align: center;
 
       h2 {
-        font-size: 3rem;
+        font-size: 1rem;
         text-transform: capitalize;
 
+        @include media-breakpoint-up(md) {
+          font-size: 3rem;
+        }
+
         &.palmaton {
-          font-size: 6rem;
-          line-height: 2rem;
+          font-size: 2rem;
+          line-height: 1rem;
+
+          @include media-breakpoint-up(md) {
+            font-size: 6rem;
+            line-height: 2rem;
+          }
         }
       }
     }
@@ -68,3 +77,17 @@
   }
 }
 
+.two-line-header {
+  .palmaton {
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+      line-height: 0;
+    }
+
+    h2 {
+      &:not(.palmaton) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
