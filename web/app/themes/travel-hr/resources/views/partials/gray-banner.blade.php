@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <img src="{!! $image !!}" alt="" class="img-fluid relative">
+          <div class="img-gradient">
+            <img src="{!! $image !!}" alt="" class="img-fluid relative">
+          </div>
           <div class="overlay bottom">
             <div class="overlay-bottom-row">
               <h3>{!! $title !!}</h3>

@@ -5,8 +5,24 @@
     background-color: $light-gray;
   }
 
+  .img-gradient {
+    max-width: 100%;
+
+    &::after {
+      content: "";
+      background: linear-gradient(to bottom, rgba($black, 0) 30%, rgba($black, 1) 99%, rgba($black, 1) 100%);
+      z-index: 20;
+      position: absolute;
+      top: 0;
+      left: 15px;
+      right: 15px;
+      bottom: 0;
+    }
+  }
+
   .overlay {
     &.bottom {
+      z-index: 25;
       justify-content: center;
       align-items: center;
 
