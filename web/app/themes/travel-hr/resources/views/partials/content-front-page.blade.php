@@ -1,5 +1,4 @@
-<div class="full-width bg-img">
-  <img class="img-fluid" src="{!! the_post_thumbnail_url('front-page-image') !!}" alt="">
+<div class="full-width bg-img" style="background:{!! the_post_thumbnail_url('front-page-image') !!} center">
   <div class="overlay">
     <div class="header">
       <h2 class="palmaton">Introducing</h2>
