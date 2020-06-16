@@ -1,13 +1,13 @@
 .two-line-header {
-  .palmaton {
+  h2.palmaton {
     @include media-breakpoint-down(md) {
       font-size: 2rem;
       line-height: 0;
     }
 
-    h2 {
-      &:not(.palmaton) {
-        @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(md) {
+      h2 {
+        &:not(.palmaton) {
           font-size: 1rem;
         }
       }
