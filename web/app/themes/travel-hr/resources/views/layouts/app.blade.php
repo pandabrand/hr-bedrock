@@ -27,7 +27,10 @@
                 @if( 'city' == get_post_type() )
                   <h2 class="palmaton">Explore</h2>
                   <h2 class="text-uppercase font-weight-bold">Other Destinations</h2>
-                  @else
+                @elseif( 'vibe-manager' == get_post_type() )
+                  <h2 class="palmaton">Discover</h2>
+                  <h2 class="text-uppercase font-weight-bold">Other Vibe Managers</h2>
+                @else
                   <h2 class="palmaton">Discover</h2>
                   <h2 class="text-uppercase font-weight-bold">Other Artists</h2>
                 @endif
