@@ -19,6 +19,7 @@ class FrontPage extends Controller
             $args = array(
                 'post_type' => 'artist',
                 'posts_per_page' => 4,
+                'orderby' => 'rand',
                 'meta_query' => array(
                     'relation' => 'OR',
                     array (
