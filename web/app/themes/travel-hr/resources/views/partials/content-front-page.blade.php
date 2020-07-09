@@ -3,7 +3,7 @@
     <div class="header">
       <h2 class="palmaton">Introducing Soundtracks</h2>
       <h2 class="font-weight-bold text-uppercase">by Hard Rock</h2>
-      <div class="d-none d-md-block">  @php the_content() @endphp </div>
+      <div class="d-none d-md-block mx-auto w-50">  @php the_content() @endphp </div>
     </div>
   </div>
 </div>
