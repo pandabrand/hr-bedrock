@@ -74,7 +74,7 @@ export default {
       for(var x = 0; x < hrh_hotels.hotels.length; x++) {
         var hotel = hrh_hotels.hotels[x];
         var hotel_place = L.marker([hotel.lat, hotel.lng],{icon:hrhIcon, riseOnHover:true, riseOffset: 3000});
-        hotel_place.bindPopup('<div class=" cc-marker__popup font-weight-bold">'+hotel.name+'</div>');
+        hotel_place.bindPopup('<div class="cc-marker__popup"><div class="font-weight-bold">'+hotel.name+'</div><div>'+hotel.address+'<br>'+hotel.address_two+'</div><div><a href="'+hotel.website+'" target="_blank"><span class="fa fa-window-maximize"></span> website</a></div></div>');
         hotel_markers.addLayer(hotel_place);
         hotel.marker_id = hotel_markers.getLayerId(hotel_place);
         jQuery('#'+hotel.location_id).attr('data-cc-marker', hotel.marker_id);
