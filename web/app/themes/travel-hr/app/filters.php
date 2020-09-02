@@ -112,10 +112,22 @@ add_action( 'pre_get_posts', function ( $query ) {
     }
   } elseif( !is_admin() && $query->is_main_query() && is_post_type_archive( ['city', 'artist', 'vibe-manager'] ) ) {
     $query->set( 'posts_per_page', 16 );
+    $query->set( 'post_status', 'publish' );
     $query->set( 'paged', 1 );
     $query->set( 'nopaging', false );
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'asc' );
+    if( is_post_type_archive( 'city' ) ) {
+        $tax_query = array(
+            array(
+                'taxonomy' => 'hotel',
+                'field' => 'slug',
+                'terms' => 'reverb',
+                'operator' => 'NOT IN'
+            ),
+        );
+        $query->set( 'tax_query', $tax_query );
+    }
   } elseif( !is_admin() && is_search() ) {
     $idObj = get_category_by_slug('reserved');
     $id = $idObj->term_id;
