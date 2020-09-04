@@ -7,7 +7,6 @@ add_action('wp_enqueue_scripts', function() {
     if( is_single() || is_tax( 'location_types' ) ):
         $args = array(
         "post_type" => "city",
-        'post_status' => 'publish',
         "numberposts" => -1,
         'tax_query'=> array(
             array(

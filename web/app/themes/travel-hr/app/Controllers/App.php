@@ -139,7 +139,6 @@ class App extends Controller
 
         $args = array(
           "post_type" => "artist",
-          'post_status' => 'publish',
           "orderby" => "title",
           "order" => "ASC",
           "numberposts" => "25"

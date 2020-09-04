@@ -18,7 +18,6 @@ class Single extends Controller
             $locations = get_posts(array(
                 "numberposts" => -1,
                 "post_type" => "location",
-                'post_status' => 'publish',
                 "meta_query" => array(
                     array(
                         'key' => 'location_city',
@@ -181,7 +180,6 @@ class Single extends Controller
             $vibe_managers = array();
             $vibe_args = array(
                 'post_type' => 'vibe-manager',
-                'post_status' => 'publish',
                 'posts_per_page' => 1,
                 'meta_query' => array(
                     array (
@@ -218,7 +216,6 @@ class Single extends Controller
 
             $args = array(
                 'post_type' => 'artist',
-                'post_status' => 'publish',
                 'posts_per_page' => $post_per_page,
                 'meta_query' => array(
                     array (
