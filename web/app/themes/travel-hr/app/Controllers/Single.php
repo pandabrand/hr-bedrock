@@ -154,6 +154,10 @@ class Single extends Controller
 
     public static function location_for_array( $location_arr )
     {
+        if( !is_array( $location_arr ) && $location_arr instanceof \WP_Post ) {
+            return $location_arr;
+        }
+
         $array_for_location = $location_arr['location'];
         $location = null;
 
