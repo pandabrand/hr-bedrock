@@ -12,15 +12,20 @@ add_action('wp_enqueue_scripts', function () {
     if( is_single() && (get_post_type($post->ID) == 'artist' || get_post_type($post->ID) == 'vibe-manager') ) {
       if( have_rows( 'artists_locations', $post->ID ) ) {
         while( have_rows( 'artists_locations', $post->ID ) ): the_row();
-          $location = get_sub_field('location')[0];
-          $location_output = array(
-            'location_id' => $location->ID,
-            'title' => get_the_title($location->ID),
-            'website' => get_field('website', $location->ID),
-            'coords' => get_field('address', $location->ID),
-            'address' => Single::address($location),
-          );
-          $json_locations['locations'][] = $location_output;
+          $location_array = get_sub_field('location');
+          if( !empty( $location_array ) )
+          {
+
+              $location = array_pop( $location_array );
+              $location_output = array(
+                  'location_id' => $location->ID,
+                  'title' => get_the_title($location->ID),
+                  'website' => get_field('website', $location->ID),
+                  'coords' => get_field('address', $location->ID),
+                  'address' => Single::address($location),
+                );
+                $json_locations['locations'][] = $location_output;
+            }
         endwhile;
       }
       $related_city = get_field('artist_city', $post->ID)[0];

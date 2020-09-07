@@ -11,7 +11,28 @@ class Single extends Controller
     {
         if( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' )
         {
-            $locations = get_field('artists_locations');
+            $city_array = get_field( 'artist_city' );
+
+            if( !empty( $city_array ) )
+            {
+                $city = array_pop( $city_array );
+
+                $hotels_cat = get_the_terms( $city->ID, 'hotel' );
+
+                if( !empty( $hotels_cat ) && !is_wp_error( $hotels_cat ) )
+                {
+                    $categories = wp_list_pluck( $hotels_cat, 'name' );
+                }
+
+                if( !empty( $categories ) && in_array( 'Reverb', $categories ) )
+                {
+                    $locations = array();
+                }
+                else
+                {
+                    $locations = get_field('artists_locations');
+                }
+            }
         }
         elseif( get_post_type() == 'city' )
         {
@@ -51,9 +72,20 @@ class Single extends Controller
     {
         $id = ($location == null) ? get_the_ID() : $location->ID;
 
-        $location_city_id = get_field('location_city', $id);
+        $location_city_array = get_field('location_city', $id);
 
-        return (!empty($location_city_id)) ? get_post($location_city_id[0])->post_name : '';
+        $location_name = '';
+
+        if ( !empty( $location_city_array ) )
+        {
+            $location_city_id = array_pop( $location_city_array );
+
+            $location_city = get_post( $location_city_id );
+
+            $location_name = ($location_city) ? $location_city->post_name : '';
+
+        }
+        return  $location_name;
     }
 
     public static function instagram_url( $location = null )
@@ -122,7 +154,15 @@ class Single extends Controller
 
     public static function location_for_array( $location_arr )
     {
-        return ( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' ) ? $location_arr['location'][0] : $location_arr;
+        $array_for_location = $location_arr['location'];
+        $location = null;
+
+        if( !empty( $array_for_location ) )
+        {
+            $location = array_pop( $array_for_location );
+        }
+
+        return ( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' ) ? $location : $location_arr;
     }
 
     public static function address( $location = null )
@@ -228,6 +268,7 @@ class Single extends Controller
 
             $query = new \WP_Query( $args );
 
+            $artists = array();
             if( $query->post_count > 0 )
             {
                 foreach( $query->posts as $post )

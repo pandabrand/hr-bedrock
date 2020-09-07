@@ -169,7 +169,7 @@ class App extends Controller
 
     public static function ref_for_object( $location )
     {
-        if( empty( $location ) ) {
+        if( !empty( $location ) ) {
             $id = $location->ID;
         }
         else
@@ -183,5 +183,24 @@ class App extends Controller
     {
         $id = ( $location == null ) ? get_the_ID() : $location->ID;
         return get_field('website', $id );
+    }
+
+    public static function reverb_cities() {
+        $args = array(
+            'post_type' => 'city',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'hotel',
+                    'field' => 'slug',
+                    'terms' => 'reverb',
+                    'operator' => 'IN'
+                ),
+            )
+        );
+
+        $posts = get_posts( $args );
+        $city_names = wp_list_pluck( $posts, 'post_name' );
+        \write_log( $city_names );
+        return $city_names;
     }
 }

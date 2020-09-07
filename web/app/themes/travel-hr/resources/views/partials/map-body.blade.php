@@ -38,7 +38,10 @@
           @if ( get_post_type() == 'artist' || get_post_type() == 'city'|| get_post_type() == 'vibe-manager' )
             @if( !empty( $locations ) )
               @foreach( $locations as $location_arr )
-                @include( 'partials.travel-location_block', [ $location = Single::location_for_array($location_arr)] )
+                <?php $location = Single::location_for_array($location_arr); ?>
+                @if( !empty( $location ) )
+                  @include( 'partials.travel-location_block', [ $location ] )
+                @endif
               @endforeach
             @endif
           @else
