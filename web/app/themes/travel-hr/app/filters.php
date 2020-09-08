@@ -128,6 +128,19 @@ add_action( 'pre_get_posts', function ( $query ) {
         );
         $query->set( 'tax_query', $tax_query );
     }
+
+    if( is_post_type_archive( ['city', 'vibe-manager'] ) ) {
+        $reverb = App::reverb_cities();
+        $meta_query = array (
+            'relation' => 'AND',
+            array(
+                'key' => 'artist_city',
+                'value' => $reverb,
+                'compare' => 'NOT IN',
+            ),
+        );
+        $query->set( 'meta_query', $meta_query );
+    }
   } elseif( !is_admin() && is_search() ) {
     $idObj = get_category_by_slug('reserved');
     $id = $idObj->term_id;

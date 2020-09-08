@@ -200,7 +200,6 @@ class App extends Controller
 
         $posts = get_posts( $args );
         $city_names = wp_list_pluck( $posts, 'post_name' );
-        \write_log( $city_names );
         return $city_names;
     }
 }

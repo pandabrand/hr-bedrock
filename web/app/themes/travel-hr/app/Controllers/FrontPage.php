@@ -13,6 +13,7 @@ class FrontPage extends Controller
 
     public function artists()
     {
+        $reverb = App::reverb_cities();
         // $artists = wp_cache_get( 'artists_five' );
         if( true ) //false === $artists )
         {
@@ -31,7 +32,15 @@ class FrontPage extends Controller
                         'compare'   => '=',
                         'value' => '0',
                     ),
-                )
+                    array (
+                        'relation' => 'AND',
+                        array(
+                            'key' => 'artist_city',
+                            'value' => $reverb,
+                            'compare' => 'NOT IN',
+                        ),
+                    ),
+                ),
             );
 
             $query = new \WP_Query( $args );
