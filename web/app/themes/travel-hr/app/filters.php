@@ -129,8 +129,8 @@ add_action( 'pre_get_posts', function ( $query ) {
         $query->set( 'tax_query', $tax_query );
     }
 
-    if( is_post_type_archive( ['city', 'vibe-manager'] ) ) {
-        $reverb = App::reverb_cities();
+    if( is_post_type_archive( ['artist', 'vibe-manager'] ) ) {
+        $reverb = \App::reverb_cities();
         $meta_query = array (
             'relation' => 'AND',
             array(
