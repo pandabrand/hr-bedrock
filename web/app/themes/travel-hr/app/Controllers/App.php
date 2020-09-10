@@ -199,7 +199,7 @@ class App extends Controller
         );
 
         $posts = get_posts( $args );
-        $city_names = wp_list_pluck( $posts, 'post_name' );
-        return $city_names;
+        $city_ids = wp_list_pluck( $posts, 'ID' );
+        return $city_ids;
     }
 }

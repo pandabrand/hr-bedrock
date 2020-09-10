@@ -133,12 +133,16 @@ add_action( 'pre_get_posts', function ( $query ) {
         $reverb = \App::reverb_cities();
         $meta_query = array (
             'relation' => 'AND',
-            array(
-                'key' => 'artist_city',
-                'value' => $reverb,
-                'compare' => 'NOT IN',
-            ),
         );
+
+        foreach( $reverb as $city_id ) {
+            $meta_query[] = array(
+                'key' => 'artist_city',
+                'value' => '"' . $city_id . '"',
+                'compare' => 'NOT LIKE',
+            );
+        }
+
         $query->set( 'meta_query', $meta_query );
     }
   } elseif( !is_admin() && is_search() ) {

@@ -13,35 +13,50 @@ class FrontPage extends Controller
 
     public function artists()
     {
-        $reverb = App::reverb_cities();
+        $reverb_cities = App::reverb_cities();
         // $artists = wp_cache_get( 'artists_five' );
         if( true ) //false === $artists )
         {
-            $args = array(
-                'post_type' => 'artist',
-                'posts_per_page' => 4,
-                'orderby' => 'rand',
-                'meta_query' => array(
+            $meta_query = array(
+                'relation' => 'AND',
+                array(
                     'relation' => 'OR',
                     array (
-                    'key'   => 'vibe_manager',
-                    'compare' => 'NOT EXISTS',
+                        'key'   => 'vibe_manager',
+                        'compare' => 'NOT EXISTS',
                     ),
                     array (
                         'key'   => 'vibe_manager',
                         'compare'   => '=',
                         'value' => '0',
                     ),
-                    array (
-                        'relation' => 'AND',
-                        array(
-                            'key' => 'artist_city',
-                            'value' => $reverb,
-                            'compare' => 'NOT IN',
-                        ),
-                    ),
                 ),
             );
+
+            if( !empty( $reverb_cities ) )
+            {
+                $reverb_array = array(
+                    'relation' => 'AND'
+                );
+
+                foreach( $reverb_cities as $city_id ) {
+                    $reverb_array[] = array(
+                        'key' => 'artist_city',
+                        'value' => '"' . $city_id . '"',
+                        'compare' => 'NOT LIKE',
+                    );
+                }
+                $meta_query[] = $reverb_array;
+            }
+
+            $args = array(
+                'post_type' => 'artist',
+                'posts_per_page' => 4,
+                'orderby' => 'rand',
+                'meta_query' => $meta_query,
+            );
+
+            write_log( $args );
 
             $query = new \WP_Query( $args );
 
@@ -60,7 +75,6 @@ class FrontPage extends Controller
                         'name' => $post->post_title,
                         'link' => get_the_permalink( $post->ID ),
                         'summary' => $summary,
-                        'locations' => array_slice( get_field( 'artists_locations', $post ), 0, 4 ),
                         'full_post' => $post
                     );
                 }
