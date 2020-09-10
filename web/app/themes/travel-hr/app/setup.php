@@ -140,5 +140,6 @@ add_action('after_setup_theme', function () {
     });
 
     add_image_size( 'front-page-image', 1440, 500, true );
+    add_image_size( 'front-page-reverb', 1440, 500, array( 'center', 'top' ) );
     add_image_size( 'large-feature', 640, 640 );
 });
