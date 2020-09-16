@@ -56,8 +56,6 @@ class FrontPage extends Controller
                 'meta_query' => $meta_query,
             );
 
-            write_log( $args );
-
             $query = new \WP_Query( $args );
 
             if( $query->post_count > 0 )
