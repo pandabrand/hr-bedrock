@@ -14,10 +14,11 @@ use Roots\WPConfig\Config;
  * Example: `Config::define('DISALLOW_FILE_MODS', false);`
  */
 
+Config::define('WP_MEMORY_LIMIT', '25M');
 Config::define('WP_DEBUG', true);
 Config::define('WP_DEBUG_DISPLAY', false);
 Config::define('WP_DEBUG_LOG', true);
 Config::define('WP_DISABLE_FATAL_ERROR_HANDLER', true);
 Config::define('SCRIPT_DEBUG', true);
-Config::define('GOOGLE_MAP_API','AIzaSyA5pdShpGLoC1YRRNiGiyM_bDAuGwLHcCg');
+Config::define('GOOGLE_MAP_API', 'AIzaSyA5pdShpGLoC1YRRNiGiyM_bDAuGwLHcCg');
 Config::define('MAPBOX_API', 'pk.eyJ1IjoicGFuZGFicmFuZCIsImEiOiJjaWg2cGcyOHAwM2RsdWtrdHQ4bWU1dW53In0.Ey23wcFG2-wFAR-I-0HwlQ');
