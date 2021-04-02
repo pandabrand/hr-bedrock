@@ -151,13 +151,12 @@
 
             .billboard__title {
               color: #fff;
-              font-size: 1.5rem;
-              font-weight: 900;
+              font-size: 2.5rem;
+              font-family: $palmaton;
               text-transform: capitalize;
 
               @include media-breakpoint-up(md) {
-                font-size: 2rem;
-                font-size: 4.5rem;
+                font-size: 6.5rem;
               }
             }
           }

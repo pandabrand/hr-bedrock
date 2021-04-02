@@ -279,10 +279,10 @@ function get_category_type_title($post = null) {
     if ( empty( $post )  ) {
       global $post;
     } else {
-      $post = get_post($post);
+      $post = get_post($post->ID);
     }
 
-    $excerpt = get_the_excerpt();
+    $excerpt = get_the_excerpt($post->ID);
     //for some reason &hellip; keeps showing up on empty excerpts, get the post content
     if ($excerpt === '&hellip;') {
       $excerpt = wp_strip_all_tags( $post->post_content );

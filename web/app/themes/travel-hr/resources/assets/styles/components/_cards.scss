@@ -4,7 +4,7 @@ $card__border__color:  $white;
 
 .card {
   position: relative;
-  height: 430px;
+  height: 385px;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ $card__border__color:  $white;
   }
 
   .card__category-line {
-    display: block;
+    display: none;
     border-right: $card__border__color solid 2px;
     position: absolute;
     height: 127px;
@@ -56,7 +56,7 @@ $card__border__color:  $white;
     width: 100%;
     margin: 0;
     padding: 1.25rem;
-    height: 265px;
+    height: 210px;
 
     .card__copy {
       height: 100%;
@@ -126,7 +126,7 @@ $card__border__color:  $white;
   .card__category-block {
     position: absolute;
     top: 30%;
-    right: 0.625rem;
+    left: 0.625rem;
     height: 40px;
     display: flex;
     word-break: break-all;
