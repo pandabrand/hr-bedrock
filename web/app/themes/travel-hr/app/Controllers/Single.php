@@ -274,7 +274,7 @@ class Single extends Controller
             {
                 foreach( $vibe_query->posts as $post )
                 {
-                    $summary = ( has_excerpt( $post->ID ) ) ? $get_the_excerpt($post->ID) : wp_trim_words( $post->post_content, '35', '...' );
+                    $summary = ( has_excerpt( $post->ID ) ) ? get_the_excerpt($post->ID) : wp_trim_words( $post->post_content, '35', '...' );
                     $vibe_managers[] = array(
                         'image' => wp_get_attachment_image(
                             get_post_thumbnail_id( $post->ID ),
