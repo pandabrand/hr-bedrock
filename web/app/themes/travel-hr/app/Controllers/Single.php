@@ -185,45 +185,64 @@ class Single extends Controller
     public function additional_posts()
     {
         $reverb_cities = App::reverb_cities();
-        $meta_query = array(
-            'relation' => 'AND',
-            array(
-                'relation' => 'OR',
-                array (
-                    'key'   => 'vibe_manager',
-                    'compare' => 'NOT EXISTS',
+        $args = array();
+        if ( get_post_type() == 'artist' || get_post_type() == 'vibe-manager' ) {
+            $meta_query = array(
+                'relation' => 'AND',
+                array(
+                    'relation' => 'OR',
+                    array (
+                        'key'   => 'vibe_manager',
+                        'compare' => 'NOT EXISTS',
+                    ),
+                    array (
+                        'key'   => 'vibe_manager',
+                        'compare'   => '=',
+                        'value' => '0',
+                    ),
                 ),
-                array (
-                    'key'   => 'vibe_manager',
-                    'compare'   => '=',
-                    'value' => '0',
-                ),
-            ),
-        );
-
-        if( !empty( $reverb_cities ) )
-        {
-            $reverb_array = array(
-                'relation' => 'AND'
             );
 
-            foreach( $reverb_cities as $city_id ) {
-                $reverb_array[] = array(
-                    'key' => 'artist_city',
-                    'value' => '"' . $city_id . '"',
-                    'compare' => 'NOT LIKE',
+            if( !empty( $reverb_cities ) )
+            {
+                $reverb_array = array(
+                    'relation' => 'AND'
                 );
+
+                foreach( $reverb_cities as $city_id ) {
+                    $reverb_array[] = array(
+                        'key' => 'artist_city',
+                        'value' => '"' . $city_id . '"',
+                        'compare' => 'NOT LIKE',
+                    );
+                }
+                $meta_query[] = $reverb_array;
             }
-            $meta_query[] = $reverb_array;
+
+            $args = array(
+                'post_type' => get_post_type(),
+                'orderby'   => 'rand',
+                'posts_per_page' => 4,
+                'meta_query' => $meta_query,
+                'exclude' => array(get_the_ID()),
+            );
         }
 
-        $args = array(
-            'post_type' => get_post_type(),
-            'orderby'   => 'rand',
-            'posts_per_page' => 4,
-            'meta_query' => $meta_query,
-            'exclude' => array(get_the_ID()),
-        );
+        if ( get_post_type() == 'city' ) {
+            $args = array(
+                'post_type' => get_post_type(),
+                'orderby'   => 'rand',
+                'posts_per_page' => 4,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'hotel',
+                        'field' => 'slug',
+                        'terms' => 'reverb',
+                        'operator' => 'NOT IN'
+                    ),
+                )
+            );
+        }
 
         $posts = array_map(
             function( $post ) {

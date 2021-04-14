@@ -7,7 +7,7 @@
             <h1 class="palmaton">Explore</h1>
             <h1>{!! get_the_title() !!}</h1>
           </div>
-          <div class="text-center px-5">{!! the_content() !!}</div>
+          <div class="text-center px-md-5">{!! the_content() !!}</div>
         </div>
       </div>
     </div>
