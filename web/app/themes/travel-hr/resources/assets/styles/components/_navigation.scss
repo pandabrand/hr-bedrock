@@ -23,6 +23,10 @@
   }
 }
 
+.navbar-toggler {
+  color: $white;
+}
+
 .travel {
   &.travel__navigation {
     width: 100%;
@@ -125,7 +129,6 @@
         &.navbar-toggler {
           font-size: 1rem;
           padding-top: 0.25rem;
-          color: $white;
         }
       }
 

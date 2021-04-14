@@ -74,7 +74,7 @@
 
   .billboard {
     width: 100%;
-    height: calc(100vh -  50px);
+    height: calc(100vh - 50px);
 
     @include media-breakpoint-up(md) {
       height: auto;
@@ -101,7 +101,7 @@
     position: absolute;
     height: calc(100vh - 50px);
     width: 100%;
-    top: 50px;
+    top: 0;
     left: 0;
 
     @include media-breakpoint-up(md) {
