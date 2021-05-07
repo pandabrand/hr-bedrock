@@ -82,7 +82,7 @@
     "leaflet": "^1.6.0",
     "leaflet-defaulticon-compatibility": "^0.1.1",
     "popper.js": "^1.14.7",
-    "underscore": "^1.9.2",
+    "underscore": "^1.12.1",
     "waypoints": "^4.0.1"
   }
 }
